@@ -1,0 +1,31 @@
+# Python-specific
+*.pyc
+__pycache__/
+generate_hash_cse.py
+
+# Environment files
+.env
+.venv/
+venv/
+
+# Configuration and logs
+*.log
+process_log.txt
+filelist.txt
+
+# Data and output files
+/data/
+/zip_archives/
+*.csv
+
+# Docker
+*.dockerignore
+Dockerfile
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.tar.gz
