@@ -47,6 +47,7 @@ def initialize_database(db_name="pokemon_data.db"):
             CREATE TABLE IF NOT EXISTS forms (
                 form_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 dex_number INTEGER,
+                pokemon_name TEXT,
                 form_name TEXT,
                 primary_type TEXT,
                 secondary_type TEXT,
@@ -95,16 +96,28 @@ def insert_pokemon_data(extracted_data, connection):
     Insert extracted Pokémon data into the SQLite database.
     """
     with closing(connection.cursor()) as cursor:
-        # Ensure abilities are handled correctly if they are lists
-        primary_ability = extracted_data.get("primary_ability", "")
-        hidden_ability = extracted_data.get("hidden_ability", "")
-        secondary_abilities = extracted_data.get("secondary_abilities", [])
+        try:
+            # Begin a transaction for bulk insertion
+            connection.execute('PRAGMA foreign_keys = OFF')
+            connection.execute('BEGIN TRANSACTION')
 
-        if isinstance(secondary_abilities, list):
+            # Ensure abilities are handled correctly if they are lists
+            abilities = extracted_data.get("abilities", [])
+            primary_ability = ""
+            hidden_ability = ""
+            secondary_abilities = []
+
+            for ability in abilities:
+                if ability.startswith("h:"):
+                    hidden_ability = ability[2:]
+                elif not primary_ability:
+                    primary_ability = ability
+                else:
+                    secondary_abilities.append(ability)
+
             secondary_abilities = ', '.join(secondary_abilities)
 
-        # Insert core Pokémon data
-        try:
+            # Insert core Pokémon data
             cursor.execute('''
                 INSERT OR REPLACE INTO pokemon (
                     dex_number, pokemon_name, primary_type, secondary_type, egg_groups,
@@ -137,31 +150,42 @@ def insert_pokemon_data(extracted_data, connection):
                 json.dumps(extracted_data["base_stats"]),
                 json.dumps(extracted_data.get("raw_data", {}))
             ))
-        except sqlite3.Error as e:
-            logging.error(f"Database error while inserting core data for {extracted_data.get('pokemon_name', 'Unknown')}: {e}")
-            return
 
-        # Insert forms data (e.g., Mega, Gmax)
-        for form in extracted_data.get("forms", []):
-            form_name = f"{extracted_data['pokemon_name']} {form.get('name', '').strip()}"
-            abilities = form.get("abilities", [])
-            form_primary_ability = abilities[0] if len(abilities) > 0 else ""
-            form_hidden_ability = abilities[1] if len(abilities) > 1 else ""
-            form_secondary_abilities = ', '.join(abilities[2:]) if len(abilities) > 2 else ""
-            try:
-                cursor.execute('''
-                    INSERT INTO forms (
-                        dex_number, form_name, primary_type, secondary_type, egg_groups,
-                        catch_rate, base_experience_yield, base_friendship, labels,
-                        primary_ability, hidden_ability, secondary_abilities, height, weight,
-                        base_stats, raw_data
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ''', (
+            # Insert forms data (e.g., Mega, Gmax)
+            form_inserts = []
+            for form in extracted_data.get("forms", []):
+                # Add logging to see the form data being processed
+                logging.info(f"Processing form data: {form}")
+                form_name = form.get("name", form.get("form_name", "Unknown Form"))
+                if not form_name or form_name == "Unknown Form":
+                    logging.warning(f"Form name missing or unknown for form data: {form}")
+                
+                form_abilities = form.get("abilities", [])
+                form_primary_ability = ""
+                form_hidden_ability = ""
+                form_secondary_abilities = []
+
+                for ability in form_abilities:
+                    if ability.startswith("h:"):
+                        form_hidden_ability = ability[2:]
+                    elif not form_primary_ability:
+                        form_primary_ability = ability
+                    else:
+                        form_secondary_abilities.append(ability)
+
+                form_secondary_abilities = ', '.join(form_secondary_abilities)
+
+                egg_groups = form.get("eggGroups", extracted_data.get("egg_groups", []))
+                if isinstance(egg_groups, list):
+                    egg_groups = ', '.join(egg_groups)
+
+                form_inserts.append((
                     int(extracted_data["dex_number"]),
+                    extracted_data["pokemon_name"],
                     form_name,
                     form.get("primaryType", extracted_data.get("primary_type")),
                     form.get("secondaryType", extracted_data.get("secondary_type")),
-                    ', '.join(form.get("eggGroups", extracted_data.get("egg_groups", []))),
+                    egg_groups,
                     int(form.get("catchRate", extracted_data.get("catch_rate", 0))),
                     int(form.get("baseExperienceYield", extracted_data.get("base_experience_yield", 0))),
                     int(form.get("baseFriendship", extracted_data.get("base_friendship", 0))),
@@ -171,43 +195,53 @@ def insert_pokemon_data(extracted_data, connection):
                     form_secondary_abilities,
                     float(form.get("height", extracted_data.get("height", 0.0))),
                     float(form.get("weight", extracted_data.get("weight", 0.0))),
-                    json.dumps(form.get("baseStats", {})),
+                    json.dumps(form.get("baseStats", "{}")),
                     json.dumps(form)
                 ))
-            except sqlite3.Error as e:
-                logging.error(f"Database error while inserting form data for {form_name}: {e}")
 
-        # Insert evolutions data
-        for evolution in extracted_data.get("evolutions", []):
-            try:
-                cursor.execute('''
-                    INSERT INTO evolutions (
-                        dex_number, evolves_to, evolution_level, conditions
-                    ) VALUES (?, ?, ?, ?)
-                ''', (
+            cursor.executemany('''
+                INSERT INTO forms (
+                    dex_number, pokemon_name, form_name, primary_type, secondary_type, egg_groups,
+                    catch_rate, base_experience_yield, base_friendship, labels,
+                    primary_ability, hidden_ability, secondary_abilities, height, weight,
+                    base_stats, raw_data
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', form_inserts)
+
+            # Insert evolutions data
+            evolution_inserts = []
+            for evolution in extracted_data.get("evolutions", []):
+                evolution_inserts.append((
                     int(extracted_data["dex_number"]),
                     evolution.get("evolves_to", ""),
                     int(evolution.get("evolution_level", 0)) if evolution.get("evolution_level") is not None else None,
                     json.dumps(evolution.get("conditions", {}))
                 ))
-            except sqlite3.Error as e:
-                logging.error(f"Database error while inserting evolution data for {extracted_data.get('pokemon_name', 'Unknown')}: {e}")
 
-        # Insert moves data
-        for category, moves in extracted_data.get("moves", {}).items():
-            for move in moves:
-                try:
-                    cursor.execute('''
-                        INSERT INTO moves (
-                            dex_number, category, move_name
-                        ) VALUES (?, ?, ?)
-                    ''', (
+            cursor.executemany('''
+                INSERT INTO evolutions (
+                    dex_number, evolves_to, evolution_level, conditions
+                ) VALUES (?, ?, ?, ?)
+            ''', evolution_inserts)
+
+            # Insert moves data
+            move_inserts = []
+            for category, moves in extracted_data.get("moves", {}).items():
+                for move in moves:
+                    move_inserts.append((
                         int(extracted_data["dex_number"]),
                         category,
                         move
                     ))
-                except sqlite3.Error as e:
-                    logging.error(f"Database error while inserting move data for {extracted_data.get('pokemon_name', 'Unknown')}: {e}")
 
-        connection.commit()
-        logging.info(f"Data for {extracted_data['pokemon_name']} (Dex {extracted_data['dex_number']}) inserted successfully.")
+            cursor.executemany('''
+                INSERT INTO moves (
+                    dex_number, category, move_name
+                ) VALUES (?, ?, ?)
+            ''', move_inserts)
+
+            # Commit the transaction
+            connection.commit()
+            logging.info(f"Data for {extracted_data['pokemon_name']} (Dex {extracted_data['dex_number']}) inserted successfully.")
+        except sqlite3.Error as e:
+            logging.error(f"Database error while inserting data: {e}")
