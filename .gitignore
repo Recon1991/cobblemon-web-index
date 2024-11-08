@@ -7,6 +7,11 @@ generate_hash_cse.py
 .env
 .venv/
 venv/
+/.vscode
+
+# Key Files
+vscodegithubkey
+vscodegithubkey.*
 
 # Configuration and logs
 *.log
