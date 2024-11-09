@@ -19,6 +19,14 @@ config.read('config.ini')
 mods_directory = os.path.expandvars(config.get('SETTINGS', 'MODS_DIR', fallback='zip_archives'))
 resourcepacks_directory = os.path.expandvars(config.get('SETTINGS', 'RESOURCEPACKS_DIR', fallback='zip_archives'))
 
+print(f"Mod Directory: {mods_directory}")
+print(f"Resourcepacks Directory: {resourcepacks_directory}")
+
+if not os.path.exists(mods_directory):
+    raise FileNotFoundError(f"Mod Directory not found: {mods_directory}")
+if not os.path.exists(resourcepacks_directory):
+    raise FileNotFoundError(f"Resourcepacks Directory not found: {resourcepacks_directory}")
+
 # Configure skipped entries log file
 skipped_entries_log = 'skipped_entries.log'
 
