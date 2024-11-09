@@ -70,8 +70,8 @@ def initialize_database(db_name="pokemon_data.db"):
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS evolutions (
                 evolution_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                dex_number INTEGER,
                 evolves_from TEXT,
+                dex_number INTEGER,
                 evolves_to TEXT,
                 evolution_level INTEGER,
                 conditions TEXT,
@@ -107,6 +107,12 @@ def insert_pokemon_data(extracted_data, connection):
             primary_ability = ""
             hidden_ability = ""
             secondary_abilities = []
+            labels = extracted_data.get("labels", [])
+            labels_str = ', '.join(labels)
+            generation_edit = next((label for label in labels if label.startswith("gen")), "Unknown")
+            logging.info(f"Extracted generation for {extracted_data['pokemon_name']}: {generation_edit}")
+            movement_type = extracted_data.get("behaviour", {}).get("moving", "")
+            rest_type = extracted_data.get("behaviour", {}).get("resting", "")
 
             for ability in abilities:
                 if ability.startswith("h:"):
@@ -135,13 +141,13 @@ def insert_pokemon_data(extracted_data, connection):
                 int(extracted_data.get("catch_rate", 0)),
                 int(extracted_data.get("base_experience_yield", 0)),
                 int(extracted_data.get("base_friendship", 0)),
-                extracted_data["generation"],
-                extracted_data["labels"],
+                generation_edit,
+                labels_str,
                 primary_ability,
                 hidden_ability,
                 secondary_abilities,
-                extracted_data.get("movement_type", ""),
-                extracted_data.get("rest_type", ""),
+                movement_type,
+                rest_type,
                 float(extracted_data.get("height", 0.0)),
                 float(extracted_data.get("weight", 0.0)),
                 float(extracted_data.get("base_scale", 1.0)),
@@ -155,15 +161,8 @@ def insert_pokemon_data(extracted_data, connection):
             # Insert forms data (e.g., Mega, Gmax)
             form_inserts = []
             for form in extracted_data.get("forms", []):
-                # Log baseStats extraction
-                logging.info(f"Extracting baseStats for form: {form.get('name', 'Unknown Form')} - baseStats: {form.get('baseStats', 'Not found')}")
-            for form in extracted_data.get("forms", []):
-                # Add logging to see the form data being processed
-                logging.info(f"Processing form data: {form}")
                 form_name = form.get("name", form.get("form_name", "Unknown Form"))
-                if not form_name or form_name == "Unknown Form":
-                    logging.warning(f"Form name missing or unknown for form data: {form}")
-                
+
                 form_abilities = form.get("abilities", [])
                 form_primary_ability = ""
                 form_hidden_ability = ""
@@ -218,7 +217,7 @@ def insert_pokemon_data(extracted_data, connection):
                 evolution_inserts.append((
                     int(extracted_data["dex_number"]),
                     extracted_data["pokemon_name"],
-                    evolution.get("evolves_to", ""),
+                    evolution.get("evolves_to", "").capitalize(),
                     int(evolution.get("evolution_level", 0)) if evolution.get("evolution_level") is not None else None,
                     json.dumps(evolution.get("conditions", {}))
                 ))
@@ -226,7 +225,7 @@ def insert_pokemon_data(extracted_data, connection):
             cursor.executemany('''
                 INSERT INTO evolutions (
                     dex_number, evolves_from, evolves_to, evolution_level, conditions
-                ) VALUES (?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?)
             ''', evolution_inserts)
 
             # Insert moves data
