@@ -71,6 +71,7 @@ def initialize_database(db_name="pokemon_data.db"):
             CREATE TABLE IF NOT EXISTS evolutions (
                 evolution_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 dex_number INTEGER,
+                evolves_from TEXT,
                 evolves_to TEXT,
                 evolution_level INTEGER,
                 conditions TEXT,
@@ -154,6 +155,9 @@ def insert_pokemon_data(extracted_data, connection):
             # Insert forms data (e.g., Mega, Gmax)
             form_inserts = []
             for form in extracted_data.get("forms", []):
+                # Log baseStats extraction
+                logging.info(f"Extracting baseStats for form: {form.get('name', 'Unknown Form')} - baseStats: {form.get('baseStats', 'Not found')}")
+            for form in extracted_data.get("forms", []):
                 # Add logging to see the form data being processed
                 logging.info(f"Processing form data: {form}")
                 form_name = form.get("name", form.get("form_name", "Unknown Form"))
@@ -195,7 +199,7 @@ def insert_pokemon_data(extracted_data, connection):
                     form_secondary_abilities,
                     float(form.get("height", extracted_data.get("height", 0.0))),
                     float(form.get("weight", extracted_data.get("weight", 0.0))),
-                    json.dumps(form.get("baseStats", "{}")),
+                    json.dumps(form.get("base_stats", {})),
                     json.dumps(form)
                 ))
 
@@ -213,6 +217,7 @@ def insert_pokemon_data(extracted_data, connection):
             for evolution in extracted_data.get("evolutions", []):
                 evolution_inserts.append((
                     int(extracted_data["dex_number"]),
+                    extracted_data["pokemon_name"],
                     evolution.get("evolves_to", ""),
                     int(evolution.get("evolution_level", 0)) if evolution.get("evolution_level") is not None else None,
                     json.dumps(evolution.get("conditions", {}))
@@ -220,7 +225,7 @@ def insert_pokemon_data(extracted_data, connection):
 
             cursor.executemany('''
                 INSERT INTO evolutions (
-                    dex_number, evolves_to, evolution_level, conditions
+                    dex_number, evolves_from, evolves_to, evolution_level, conditions
                 ) VALUES (?, ?, ?, ?)
             ''', evolution_inserts)
 
