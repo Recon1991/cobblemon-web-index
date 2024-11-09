@@ -108,9 +108,16 @@ def insert_pokemon_data(extracted_data, connection):
             hidden_ability = ""
             secondary_abilities = []
             labels = extracted_data.get("labels", [])
-            labels_str = ', '.join(labels)
-            generation_edit = next((label for label in labels if label.startswith("gen")), "Unknown")
-            logging.info(f"Extracted generation for {extracted_data['pokemon_name']}: {generation_edit}")
+            logging.info(f"Type of labels for {extracted_data['pokemon_name']}: {type(labels)}")
+            logging.info(f"Labels for {extracted_data['pokemon_name']}: {labels}")
+            logging.info(f"Labels for {extracted_data['pokemon_name']}: {labels}")
+            if isinstance(labels, str):
+                labels = [labels]
+            logging.info(f"Converted labels to list for {extracted_data['pokemon_name']}: {labels}")
+            formatted_labels = [label.strip().lower() for label in labels]
+            logging.info(f"Formatted labels for {extracted_data['pokemon_name']}: {formatted_labels}")
+            generation_edit = next((label for label in formatted_labels if label.startswith("gen")), "Unknown")
+            logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
             movement_type = extracted_data.get("behaviour", {}).get("moving", "")
             rest_type = extracted_data.get("behaviour", {}).get("resting", "")
 
@@ -142,7 +149,7 @@ def insert_pokemon_data(extracted_data, connection):
                 int(extracted_data.get("base_experience_yield", 0)),
                 int(extracted_data.get("base_friendship", 0)),
                 generation_edit,
-                labels_str,
+                labels,
                 primary_ability,
                 hidden_ability,
                 secondary_abilities,
