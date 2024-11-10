@@ -20,6 +20,8 @@ def extract_species_info(species_data):
 
     # Handle abilities as a list instead of a dictionary
     abilities = species_data.get("abilities", [])
+    # Log the abilities extracted to verify correctness
+    logging.info(f"Extracted abilities for {pokemon_name}: {abilities}")
     primary_ability = ""
     hidden_ability = ""
     secondary_abilities = []

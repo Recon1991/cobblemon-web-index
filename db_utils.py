@@ -99,10 +99,10 @@ def insert_pokemon_data(extracted_data, connection):
     with closing(connection.cursor()) as cursor:
         try:
             # Begin a transaction for bulk insertion
-            
             # Ensure abilities are handled correctly if they are lists
             abilities = extracted_data.get("abilities", [])
-            logging.info(f"Abilities for {extracted_data['pokemon_name']}: {abilities}")
+            logging.info(f"Raw abilities from extracted_data for {extracted_data['pokemon_name']}: {abilities}")
+
             primary_ability = ""
             hidden_ability = ""
             secondary_abilities = []
