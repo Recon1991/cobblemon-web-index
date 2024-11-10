@@ -102,9 +102,23 @@ def insert_pokemon_data(extracted_data, connection):
             
             # Ensure abilities are handled correctly if they are lists
             abilities = extracted_data.get("abilities", [])
+            logging.info(f"Abilities for {extracted_data['pokemon_name']}: {abilities}")
             primary_ability = ""
             hidden_ability = ""
             secondary_abilities = []
+
+            # Extract abilities from the abilities list
+            for ability in abilities:
+                if ability.startswith("h:"):
+                    hidden_ability = ability[2:]
+                elif not primary_ability:
+                    primary_ability = ability
+                else:
+                    secondary_abilities.append(ability)
+
+            # Convert secondary abilities to a comma-separated string
+            secondary_abilities = ', '.join(secondary_abilities)
+          
             # Extract labels from the data
             labels = extracted_data.get("labels", [])
 
@@ -113,9 +127,6 @@ def insert_pokemon_data(extracted_data, connection):
                 labels = labels.split(', ')
             elif isinstance(labels, list):
                 labels = [str(label) for label in labels]
-            # Log the extracted labels to verify correctness
-            logging.info(f"Extracted labels for {extracted_data['pokemon_name']}: {labels}")
-
             # Ensure labels is always treated as a list of strings
             if isinstance(labels, str):
                 labels = [labels]
@@ -125,33 +136,19 @@ def insert_pokemon_data(extracted_data, connection):
             all_labels = labels.copy()
             # Convert all_labels to a comma-separated string for database insertion
             all_labels_str = ', '.join(all_labels)
-
             # Filter labels to extract only the generation information
             generation_label = next((label for label in labels if isinstance(label, str) and label.lower().startswith("gen")), None)
-
             # Determine the generation value
             generation_edit = generation_label if generation_label else "Unknown"
-
             # Filter out the generation label to keep only non-generation labels
             non_generation_labels = [label for label in labels if isinstance(label, str) and not label.lower().startswith("gen")]
-            
             # Log the filtered labels and the extracted generation value
-            logging.info(f"Filtered generation label for {extracted_data['pokemon_name']}: {generation_label}")
-            logging.info(f"Non-generation labels for {extracted_data['pokemon_name']}: {non_generation_labels}")
-            logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
+            #logging.info(f"Filtered generation label for {extracted_data['pokemon_name']}: {generation_label}")
+            #logging.info(f"Non-generation labels for {extracted_data['pokemon_name']}: {non_generation_labels}")
+            #logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
 
             movement_type = extracted_data.get("behaviour", {}).get("moving", "")
             rest_type = extracted_data.get("behaviour", {}).get("resting", "")
-
-            for ability in abilities:
-                if ability.startswith("h:"):
-                    hidden_ability = ability[2:]
-                elif not primary_ability:
-                    primary_ability = ability
-                else:
-                    secondary_abilities.append(ability)
-
-            secondary_abilities = ', '.join(secondary_abilities)
 
             # Insert core Pokémon data
             cursor.execute('''
