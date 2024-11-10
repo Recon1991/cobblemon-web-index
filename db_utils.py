@@ -100,24 +100,9 @@ def insert_pokemon_data(extracted_data, connection):
         try:
             # Begin a transaction for bulk insertion
             # Ensure abilities are handled correctly if they are lists
-            abilities = extracted_data.get("abilities", [])
-            logging.info(f"Raw abilities from extracted_data for {extracted_data['pokemon_name']}: {abilities}")
-
-            primary_ability = ""
-            hidden_ability = ""
-            secondary_abilities = []
-
-            # Extract abilities from the abilities list
-            for ability in abilities:
-                if ability.startswith("h:"):
-                    hidden_ability = ability[2:]
-                elif not primary_ability:
-                    primary_ability = ability
-                else:
-                    secondary_abilities.append(ability)
-
-            # Convert secondary abilities to a comma-separated string
-            secondary_abilities = ', '.join(secondary_abilities)
+            primary_ability = extracted_data.get("primary_ability", "")
+            hidden_ability = extracted_data.get("hidden_ability", "")
+            secondary_abilities = extracted_data.get("secondary_abilities", "")
           
             # Extract labels from the data
             labels = extracted_data.get("labels", [])
@@ -142,11 +127,6 @@ def insert_pokemon_data(extracted_data, connection):
             generation_edit = generation_label if generation_label else "Unknown"
             # Filter out the generation label to keep only non-generation labels
             non_generation_labels = [label for label in labels if isinstance(label, str) and not label.lower().startswith("gen")]
-            # Log the filtered labels and the extracted generation value
-            #logging.info(f"Filtered generation label for {extracted_data['pokemon_name']}: {generation_label}")
-            #logging.info(f"Non-generation labels for {extracted_data['pokemon_name']}: {non_generation_labels}")
-            #logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
-
             movement_type = extracted_data.get("behaviour", {}).get("moving", "")
             rest_type = extracted_data.get("behaviour", {}).get("resting", "")
 
