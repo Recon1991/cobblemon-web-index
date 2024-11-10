@@ -99,25 +99,47 @@ def insert_pokemon_data(extracted_data, connection):
     with closing(connection.cursor()) as cursor:
         try:
             # Begin a transaction for bulk insertion
-            connection.execute('PRAGMA foreign_keys = OFF')
-            connection.execute('BEGIN TRANSACTION')
-
+            
             # Ensure abilities are handled correctly if they are lists
             abilities = extracted_data.get("abilities", [])
             primary_ability = ""
             hidden_ability = ""
             secondary_abilities = []
+            # Extract labels from the data
             labels = extracted_data.get("labels", [])
-            logging.info(f"Type of labels for {extracted_data['pokemon_name']}: {type(labels)}")
-            logging.info(f"Labels for {extracted_data['pokemon_name']}: {labels}")
-            logging.info(f"Labels for {extracted_data['pokemon_name']}: {labels}")
+
+            # Ensure labels is always treated as a list of strings
+            if isinstance(labels, str):
+                labels = labels.split(', ')
+            elif isinstance(labels, list):
+                labels = [str(label) for label in labels]
+            # Log the extracted labels to verify correctness
+            logging.info(f"Extracted labels for {extracted_data['pokemon_name']}: {labels}")
+
+            # Ensure labels is always treated as a list of strings
             if isinstance(labels, str):
                 labels = [labels]
-            logging.info(f"Converted labels to list for {extracted_data['pokemon_name']}: {labels}")
-            formatted_labels = [label.strip().lower() for label in labels]
-            logging.info(f"Formatted labels for {extracted_data['pokemon_name']}: {formatted_labels}")
-            generation_edit = next((label for label in formatted_labels if label.startswith("gen")), "Unknown")
+            elif isinstance(labels, list):
+                labels = [str(label) for label in labels]
+            # Clone the original labels for the database insertion
+            all_labels = labels.copy()
+            # Convert all_labels to a comma-separated string for database insertion
+            all_labels_str = ', '.join(all_labels)
+
+            # Filter labels to extract only the generation information
+            generation_label = next((label for label in labels if isinstance(label, str) and label.lower().startswith("gen")), None)
+
+            # Determine the generation value
+            generation_edit = generation_label if generation_label else "Unknown"
+
+            # Filter out the generation label to keep only non-generation labels
+            non_generation_labels = [label for label in labels if isinstance(label, str) and not label.lower().startswith("gen")]
+            
+            # Log the filtered labels and the extracted generation value
+            logging.info(f"Filtered generation label for {extracted_data['pokemon_name']}: {generation_label}")
+            logging.info(f"Non-generation labels for {extracted_data['pokemon_name']}: {non_generation_labels}")
             logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
+
             movement_type = extracted_data.get("behaviour", {}).get("moving", "")
             rest_type = extracted_data.get("behaviour", {}).get("resting", "")
 
@@ -149,7 +171,7 @@ def insert_pokemon_data(extracted_data, connection):
                 int(extracted_data.get("base_experience_yield", 0)),
                 int(extracted_data.get("base_friendship", 0)),
                 generation_edit,
-                labels,
+                all_labels_str,
                 primary_ability,
                 hidden_ability,
                 secondary_abilities,
