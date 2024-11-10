@@ -34,8 +34,9 @@ def extract_species_info(species_data):
         else:
             secondary_abilities.append(ability)
 
-    movement_type = species_data.get("movementType", "")
-    rest_type = species_data.get("restType", "")
+    movement_type = extracted_data.get("behaviour", {}).get("moving", "")
+    rest_type = extracted_data.get("behaviour", {}).get("resting", "")
+
 
     height = species_data.get("height", 0.0)
     weight = species_data.get("weight", 0.0)
