@@ -34,9 +34,8 @@ def extract_species_info(species_data):
         else:
             secondary_abilities.append(ability)
 
-    movement_type = extracted_data.get("behaviour", {}).get("moving", "")
-    rest_type = extracted_data.get("behaviour", {}).get("resting", "")
-
+    movement_type = species_data.get("movementType", "")
+    rest_type = species_data.get("restType", "")
 
     height = species_data.get("height", 0.0)
     weight = species_data.get("weight", 0.0)
@@ -54,6 +53,9 @@ def extract_species_info(species_data):
 
     # Extract base stats
     base_stats = species_data.get("baseStats", {})
+    
+    # Extract behaviour
+    behaviour = species_data.get("behaviour", {})
 
     # Extract forms
     forms = []
@@ -127,6 +129,7 @@ def extract_species_info(species_data):
         "hitbox_height": hitbox_height,
         "drops": drops_str,
         "base_stats": base_stats,
+        "behaviour": behaviour,
         "forms": forms,
         "evolutions": evolutions,
         "moves": moves,

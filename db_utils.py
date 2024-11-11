@@ -127,8 +127,16 @@ def insert_pokemon_data(extracted_data, connection):
             generation_edit = generation_label if generation_label else "Unknown"
             # Filter out the generation label to keep only non-generation labels
             non_generation_labels = [label for label in labels if isinstance(label, str) and not label.lower().startswith("gen")]
-            movement_type = extracted_data.get("behaviour", {}).get("moving", "")
-            rest_type = extracted_data.get("behaviour", {}).get("resting", "")
+            # Log the filtered labels and the extracted generation value
+            #logging.info(f"Filtered generation label for {extracted_data['pokemon_name']}: {generation_label}")
+            #logging.info(f"Non-generation labels for {extracted_data['pokemon_name']}: {non_generation_labels}")
+            #logging.info(f"Final generation value for {extracted_data['pokemon_name']}: {generation_edit}")
+
+            behaviour = extracted_data.get("behaviour", {})
+            movement_type = json.dumps(behaviour.get("moving", {}))
+            rest_type = json.dumps(behaviour.get("resting", {}))
+            logging.info(f"Extracted movement_type for {extracted_data['pokemon_name']}: {movement_type}")
+            logging.info(f"Extracted rest_type for {extracted_data['pokemon_name']}: {rest_type}")
 
             # Insert core Pokémon data
             cursor.execute('''
