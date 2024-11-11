@@ -83,6 +83,7 @@ def initialize_database(db_name="pokemon_data.db"):
             CREATE TABLE IF NOT EXISTS moves (
                 move_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 dex_number INTEGER,
+                pokemon_name TEXT,
                 category TEXT,
                 move_name TEXT,
                 FOREIGN KEY (dex_number) REFERENCES pokemon (dex_number)
@@ -124,7 +125,7 @@ def insert_pokemon_data(extracted_data, connection):
             # Filter labels to extract only the generation information
             generation_label = next((label for label in labels if isinstance(label, str) and label.lower().startswith("gen")), None)
             # Determine the generation value
-            generation_edit = generation_label if generation_label else "Unknown"
+            generation_edit = generation_label.replace('gen', 'Gen ').capitalize() if generation_label else "Unknown"
             # Filter out the generation label to keep only non-generation labels
             non_generation_labels = [label for label in labels if isinstance(label, str) and not label.lower().startswith("gen")]
             # Log the filtered labels and the extracted generation value
@@ -135,8 +136,8 @@ def insert_pokemon_data(extracted_data, connection):
             behaviour = extracted_data.get("behaviour", {})
             movement_type = json.dumps(behaviour.get("moving", {}))
             rest_type = json.dumps(behaviour.get("resting", {}))
-            logging.info(f"Extracted movement_type for {extracted_data['pokemon_name']}: {movement_type}")
-            logging.info(f"Extracted rest_type for {extracted_data['pokemon_name']}: {rest_type}")
+            #logging.info(f"Extracted movement_type for {extracted_data['pokemon_name']}: {movement_type}")
+            #logging.info(f"Extracted rest_type for {extracted_data['pokemon_name']}: {rest_type}")
 
             # Insert core Pokémon data
             cursor.execute('''
@@ -155,7 +156,7 @@ def insert_pokemon_data(extracted_data, connection):
                 int(extracted_data.get("catch_rate", 0)),
                 int(extracted_data.get("base_experience_yield", 0)),
                 int(extracted_data.get("base_friendship", 0)),
-                generation_edit,
+                generation_label,
                 all_labels_str,
                 primary_ability,
                 hidden_ability,
@@ -181,6 +182,7 @@ def insert_pokemon_data(extracted_data, connection):
                 form_primary_ability = ""
                 form_hidden_ability = ""
                 form_secondary_abilities = []
+                form_labels = ', '.join(form.get("labels", []))
 
                 for ability in form_abilities:
                     if ability.startswith("h:"):
@@ -206,7 +208,7 @@ def insert_pokemon_data(extracted_data, connection):
                     int(form.get("catchRate", extracted_data.get("catch_rate", 0))),
                     int(form.get("baseExperienceYield", extracted_data.get("base_experience_yield", 0))),
                     int(form.get("baseFriendship", extracted_data.get("base_friendship", 0))),
-                    ', '.join(form.get("labels", [])),
+                    form_labels,
                     form_primary_ability,
                     form_hidden_ability,
                     form_secondary_abilities,
@@ -248,14 +250,15 @@ def insert_pokemon_data(extracted_data, connection):
                 for move in moves:
                     move_inserts.append((
                         int(extracted_data["dex_number"]),
+                        extracted_data["pokemon_name"],
                         category,
                         move
                     ))
 
             cursor.executemany('''
                 INSERT INTO moves (
-                    dex_number, category, move_name
-                ) VALUES (?, ?, ?)
+                    dex_number, pokemon_name, category, move_name
+                ) VALUES (?, ?, ?, ?)
             ''', move_inserts)
 
             # Commit the transaction

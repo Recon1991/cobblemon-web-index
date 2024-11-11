@@ -67,6 +67,7 @@ def extract_species_info(species_data):
         form_abilities = form.get("abilities", [])
         form_moves = form.get("moves", [])
         form_evolutions = form.get("evolutions", [])
+        form_labels = form.get("labels", [])
 
         forms.append({
             "form_name": form_name,
@@ -75,7 +76,8 @@ def extract_species_info(species_data):
             "weight": form_weight,
             "abilities": form_abilities,
             "moves": form_moves,
-            "evolutions": form_evolutions
+            "evolutions": form_evolutions,
+            "labels": form_labels
         })
 
     # Extract evolutions
