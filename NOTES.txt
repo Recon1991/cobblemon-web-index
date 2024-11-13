@@ -1,7 +1,24 @@
+Phase 1: Pre-Processing and Database
+- Data Extraction
+- Data Linking
+- Load to DB
+
 Phase 2: Front-end Prototyping
 - Static Prototype
 - Search and Filter features
 - DB querying
+
+Phase 3: Full Scale Web Application
+- Scalable Interactive Web Application
+- React Front-End
+- Flask or FastAPI Backend
+- Detail Pages
+
+Phase 4: Advanced Features and Deployments
+- Charts and Insights
+- User Contribution Portal
+- App Deployment
+- Backend Tools/Management
 
 ----------------------------------------------------------------
 - Cobblemon Images DB - 
@@ -11,5 +28,13 @@ to keep everything organized. You could have columns like:
     dex_number: to link to the Pokémon's dex entry
     image_path: to store the path or URL to the image
     form_name (optional): if you have different images for forms (like Mega forms, etc.)
+
+----------------------------------------------------------------
+- Cobblemon Color Palette
+Creating a database table to hold a three hexcode color palette for each Cobblemon.
+
+    dex_number: Pokemon's dex entry
+    pokemon_name: Pokemon's name
+    colorpalette: hexcode color palette, csv format
 
 ----------------------------------------------------------------
