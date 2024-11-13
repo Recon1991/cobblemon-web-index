@@ -1,0 +1,15 @@
+Phase 2: Front-end Prototyping
+- Static Prototype
+- Search and Filter features
+- DB querying
+
+----------------------------------------------------------------
+- Cobblemon Images DB - 
+Creating a dedicated database table to link images to Cobblemon entries would be a good way 
+to keep everything organized. You could have columns like:
+
+    dex_number: to link to the Pokémon's dex entry
+    image_path: to store the path or URL to the image
+    form_name (optional): if you have different images for forms (like Mega forms, etc.)
+
+----------------------------------------------------------------
