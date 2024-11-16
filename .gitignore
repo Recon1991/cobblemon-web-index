@@ -37,7 +37,7 @@ Thumbs.db
 *.tar.gz
 
 # Database
-*.db
+# *.db
 
 # Files
 Invalid Entries for pokemon Palette.txt
