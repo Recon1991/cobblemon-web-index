@@ -1,0 +1,14 @@
+[
+    {
+        "name": "bulbasaur",
+        "dex_number": 1
+    },
+    {
+        "name": "ivysaur",
+        "dex_number": 2
+    },
+    {
+        "name": "venusaur",
+        "dex_number": 3
+    }
+]
