@@ -15,7 +15,7 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 # Load Pokémon names and dex numbers from JSON file
-with open('pokemon_list_edit.json', 'r') as f:
+with open('pokemon_list_testedit.json', 'r') as f:
     pokemon_list = json.load(f)
 
 # Initialize the WebDriver (ensure the path to your WebDriver is correct)
@@ -49,7 +49,7 @@ def reset_dropdown():
             print(Fore.YELLOW + f"Failed to reset dropdown. Error: {str(e)}", flush=True)
 
 # Function to extract data for a given Pokémon
-def extract_pokemon_data(pokemon):
+def extract_pokemon_data(pokemon, shiny=False):
     pokemon_name = pokemon['name']
     dex_number = pokemon['dex_number']
 
@@ -62,7 +62,7 @@ def extract_pokemon_data(pokemon):
     time.sleep(2)  # Wait for the input to process
 
     # Extract base form color data
-    base_data = extract_color_data(pokemon_name, dex_number)
+    base_data = extract_color_data(pokemon_name, dex_number, form_name='base')
     all_forms_data = [base_data]
 
     # Check if there are alternate forms available
@@ -79,7 +79,7 @@ def extract_pokemon_data(pokemon):
                         time.sleep(2)  # Wait for the form to load
                         print(Fore.CYAN + f"Extracting data for form: {option.text.strip()} of Pokémon: {pokemon_name}", flush=True)  # Debug: Form being processed
                         # Extract color data for the alternate form
-                        form_name = option.text.strip()
+                        form_name = option.text.strip() if option.text.strip().lower() != 'default form' else 'base'
                         form_data = extract_color_data(pokemon_name, dex_number, form_name)
                         all_forms_data.append(form_data)
                         print(Fore.GREEN + f"Appended form data for: {form_name}", flush=True)  # Debug: Form data appended
@@ -118,14 +118,11 @@ def extract_color_data(pokemon_name, dex_number, form_name='base'):
 # Extract data for each Pokémon and store in a list
 all_pokemon_data = []
 for pokemon in pokemon_list:
-    forms_data = extract_pokemon_data(pokemon)
+    forms_data = extract_pokemon_data(pokemon, shiny=True)
+    all_pokemon_data.extend(forms_data)
+    
     reset_dropdown()  # Reset dropdown to default form before moving to the next Pokémon
 
-    for data in forms_data:
-        if data:
-            all_pokemon_data.append(data)
-        else:
-            print(Fore.RED + f"No data found for: {pokemon['name']}", flush=True)  # Debug: If no data is found
     time.sleep(2)  # Wait for input field to be ready for next entry
 
 # Check if any data was extracted
@@ -138,6 +135,7 @@ cursor = conn.cursor()
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS pokemon_colors (
+        shiny BOOLEAN,
         dex_number TEXT,
         pokemon_name TEXT,
         form_name TEXT,
@@ -156,13 +154,14 @@ cursor.execute('''
 
 # Insert the data into the SQLite3 database
 for pokemon in all_pokemon_data:
+    shiny = False
     colors = pokemon['color_palette']
     colors += [None] * (9 - len(colors))  # Ensure there are always 9 color slots
     print(Fore.MAGENTA + f"Inserting into DB: {pokemon['pokemon_name']} (Dex: {pokemon['dex_number']}), Form: {pokemon['form_name']}", flush=True)  # Debug: Data being inserted
     cursor.execute('''
-        INSERT OR REPLACE INTO pokemon_colors (dex_number, pokemon_name, form_name, color1, color2, color3, color4, color5, color6, color7, color8, color9)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ''', (pokemon['dex_number'], pokemon['pokemon_name'], pokemon['form_name'], *colors))
+        INSERT OR REPLACE INTO pokemon_colors (dex_number, pokemon_name, form_name, shiny, color1, color2, color3, color4, color5, color6, color7, color8, color9)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (pokemon['dex_number'], pokemon['pokemon_name'], pokemon['form_name'], shiny, *colors))
 
 # Commit changes and close the connection
 conn.commit()

@@ -129,7 +129,6 @@ def extract_color_data(pokemon_name, dex_number, form_name='base'):
 # Extract data for each Pokémon (shiny mode already toggled) and store in a list
 all_pokemon_data = []
 for pokemon in pokemon_list:
-    # Extract shiny forms
     forms_data = extract_pokemon_data(pokemon, shiny=True)
     all_pokemon_data.extend(forms_data)
 
