@@ -15,7 +15,7 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 # Load Pokémon names and dex numbers from JSON file
-with open('pokemon_list_testedit.json', 'r') as f:
+with open('pokemon_list_edit.json', 'r') as f:
     pokemon_list = json.load(f)
 
 # Initialize the WebDriver (ensure the path to your WebDriver is correct)
@@ -148,7 +148,7 @@ cursor.execute('''
         color7 TEXT,
         color8 TEXT,
         color9 TEXT,
-        PRIMARY KEY (dex_number, pokemon_name, form_name)
+        PRIMARY KEY (dex_number, pokemon_name, form_name, shiny)
     )
 ''')
 
