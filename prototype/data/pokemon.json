@@ -1,0 +1,14 @@
+[
+    {
+        "dex_number": 1,
+        "name": "Bulbasaur",
+        "type": ["Grass", "Poison"],
+        "color_palette": ["#78C850", "#A040A0", "#C6D16E"]
+    },
+    {
+        "dex_number": 4,
+        "name": "Charmander",
+        "type": ["Fire"],
+        "color_palette": ["#F08030", "#F5AC78", "#FC7C60"]
+    }
+]
