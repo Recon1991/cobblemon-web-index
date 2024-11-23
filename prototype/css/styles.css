@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background: #f8d030;
+    background: #884E4D;
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -20,6 +20,13 @@ header nav a {
 
 header nav a:hover {
     text-decoration: underline;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600; /* Ensure the weight matches SemiBold */
+    text-transform: uppercase; /* Optional: Customize header appearance */
+    letter-spacing: 1px; /* Optional: Add spacing for readability */
 }
 
 main {
@@ -46,4 +53,11 @@ footer {
     padding: 1rem;
     background: #333;
     color: white;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* Match the SemiBold weight */
+    font-style: normal;
 }
