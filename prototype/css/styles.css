@@ -1,15 +1,21 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
 }
 
-header {
-    background: #884E4D;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header .header-wave {
+    position: relative;
+    top: -10px; /* Adjust to blend the wave */
 }
 
 header nav a {
@@ -22,6 +28,11 @@ header nav a:hover {
     text-decoration: underline;
 }
 
+.dex {
+    text-align: center;
+    margin: 40px auto;
+}
+
 h1 {
     font-family: 'Rubik', sans-serif;
     font-weight: 600; /* Ensure the weight matches SemiBold */
@@ -30,8 +41,9 @@ h1 {
 }
 
 main {
-    padding: 2rem;
     text-align: center;
+    flex: 1; /* Takes up available space, pushing footer to the bottom */
+    padding: 20px;
 }
 
 .btn {
@@ -49,10 +61,34 @@ main {
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(145deg, #3b4cca, #f8d030); /* Gradient background */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0; /* Rounded corners */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer .footer-wave {
+    position: relative;
+    top: -10px; /* Adjust to blend the wave */
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+footer:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
 }
 
 @font-face {
