@@ -38,3 +38,57 @@ Creating a database table to hold a three hexcode color palette for each Cobblem
     colorpalette: hexcode color palette, csv format
 
 ----------------------------------------------------------------
+
+November 27 2024
+
+Feature Enhancements
+
+    Detail Page with Dynamic Color Palette:
+        Backend:
+            Add an endpoint like /api/pokemon/<id> to return details of a specific Cobblemon, including its color palette.
+            Ensure the pk_color_palette table data is joined with the pokemon table to fetch gradient data.
+        Frontend:
+            Create a PokemonDetail component.
+            Use React Router for navigation (/pokemon/:id) to handle detail page routing.
+            Apply the color palette dynamically using CSS-in-JS (like styled-components) or inline styles.
+
+    Dropdown Filters:
+        Backend:
+            Add optional query parameters to your /api/pokemon endpoint, e.g., /api/pokemon?type=fire&generation=1&shiny=true.
+            Use Flask's request.args to parse filters and apply SQL conditions dynamically.
+        Frontend:
+            Add controlled components for dropdowns and shiny toggle.
+            Update the Axios request dynamically based on selected filters.
+
+    Card Styling:
+        Integrate the 9-color palette into card gradients:
+            Use the first two colors for the background gradient.
+            Add hover effects using the third and fourth colors.
+        Consider using CSS Grid for the layout to make the Dex responsive.
+
+Refining the Design
+
+    Interactive Animations:
+        Use React libraries like Framer Motion to animate card hover effects, grid transitions, and detail page navigation.
+    Responsive Layout:
+        Use a CSS framework like TailwindCSS or a custom responsive grid with media queries.
+    Search Feature:
+        Add a search bar for the name and Pokedex number. On the backend, support LIKE queries in SQL.
+
+Deployment Plan
+
+    Backend:
+        Use a cloud service like AWS, Google Cloud, or Azure to host the Flask API.
+        Alternatively, deploy to a lightweight hosting service like Heroku.
+        Use Gunicorn or uWSGI to serve your Flask app in production.
+
+    Frontend:
+        Build the React app using npm run build and serve it through:
+            A static file server like Nginx.
+            A platform like Vercel or Netlify.
+
+    Database:
+        Host your SQL database (e.g., PostgreSQL or MySQL) on a cloud provider like AWS RDS or Google Cloud SQL.
+
+    Connecting Frontend and Backend:
+        Use an environment variable in React (REACT_APP_API_BASE_URL) to configure API calls dynamically based on deployment.

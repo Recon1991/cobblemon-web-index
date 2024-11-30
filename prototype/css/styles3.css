@@ -1,0 +1,228 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #eef2f3, #ffffff);
+    overflow-x: hidden; /* Prevent horizontal scroll from blobs */
+    color: #333;
+  }
+  
+/* Reset Header */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    margin: 1rem auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating effect */
+    overflow: hidden; /* Contain main blobs within the header */
+    z-index: 1;
+  }
+  
+  /* Title and Subtitle */
+  header .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3b4cca; /* Deep blue */
+    z-index: 2; /* Above blobs */
+  }
+  header .subtitle {
+    font-size: 1rem;
+    color: #888;
+    z-index: 2; /* Above blobs */
+  }
+  
+  /* Animated Blobs */
+  .blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Circular shape */
+    filter: blur(80px); /* Soft glow effect */
+    z-index: 0; /* Behind text */
+    animation: float 6s ease-in-out infinite; /* Smooth floating motion */
+  }
+  
+  .blob-left {
+    background: linear-gradient(135deg, #85d992, #78c850); /* Grass-green tones */
+    top: -50px;
+    left: -50px; /* Positioned slightly outside the header */
+  }
+  
+  .blob-right {
+    background: linear-gradient(135deg, #f08030, #f9a875); /* Fire-orange tones */
+    bottom: -50px;
+    right: -50px; /* Positioned slightly outside the header */
+    animation-delay: 3s; /* Offset animation for variety */
+  }
+  
+  /* Float Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }  
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: center;
+    background: white;
+    margin: 0 auto 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1200px;
+  }
+  nav a {
+    margin: 0 1.5rem;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  nav a.active {
+    border-bottom: 2px solid #ffcb05; /* Highlight active section */
+    color: #ffcb05;
+  }
+  nav a:hover {
+    color: #ffcb05;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1200px;
+  }
+  .search-bar input {
+    width: 70%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+  }
+  .search-bar button {
+    background: #ffcb05;
+    color: #3b4cca;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .search-bar button:hover {
+    background: #e0b204; /* Slightly darker yellow */
+  }
+  
+  /* Filters */
+  .filters {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1200px;
+  }
+  .filters select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  .filters select:hover {
+    border-color: #3b4cca; /* Highlight border on hover */
+  }
+  
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pokemon-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating effect */
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pokemon-card:hover {
+    transform: translateY(-5px); /* Lift up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+  }
+  .pokemon-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+  .pokemon-card .name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .pokemon-card .dex-number {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .pokemon-card .types {
+    margin-top: 0.5rem;
+  }
+  .type-badge {
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .type-grass {
+    background: #78c850;
+  }
+  .type-fire {
+    background: #f08030;
+  }
+  .type-water {
+    background: #6890f0;
+  }
+
+  /* Footer */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #3b4cca, #2a377d); /* Deep blue tones */
+    color: white;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

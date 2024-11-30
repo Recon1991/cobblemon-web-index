@@ -15,6 +15,5 @@ def get_pokemon():
         {"dex_number": 2, "pokemon_name": "Ivysaur", "primary_type": "Grass", "secondary_type": "Poison"}
     ])
 
-
 if __name__ == '__main__':
     app.run(debug=True)
