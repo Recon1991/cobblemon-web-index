@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Preview Page</title>
+    <style>
+        :root {
+            --page-url: 'http://127.0.0.1:5500/prototype/index3.html';
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .preview-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .iframe-wrapper {
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        iframe {
+            border: none;
+        }
+        .iframe-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        const pageUrl = 'http://127.0.0.1:5500/prototype/index3.html';
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('iframe').forEach(iframe => {
+                iframe.src = pageUrl;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Responsive Preview Page</h1>
+    <div class="preview-container">
+        <div class="iframe-wrapper">
+            <div class="iframe-label">PC - 1200px</div>
+            <iframe width="1200" height="800"></iframe>
+        </div>
+        <div class="iframe-wrapper">
+            <div class="iframe-label">Tablet - 768px</div>
+            <iframe width="768" height="800"></iframe>
+        </div>
+        <div class="iframe-wrapper">
+            <div class="iframe-label">Mobile - 480px</div>
+            <iframe width="480" height="800"></iframe>
+        </div>
+    </div>
+</body>
+</html>
