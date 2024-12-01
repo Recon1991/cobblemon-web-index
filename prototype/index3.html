@@ -8,14 +8,63 @@
 </head>
 <body>
     <header>
-        <!-- Animated Edge Blobs -->
-        <div class="blob blob-left"></div>
-        <div class="blob blob-right"></div>
-      
-        <!-- Title and Subtitle -->
-        <div class="title">Cobblemon Dex</div>
-        <div class="subtitle">BCG+ (Cobblemon)</div>
-      </header>
+        <!-- Title -->
+        <div class="title">
+            <h1>Cobblemon Dex</h1>
+        </div>
+    
+        <!-- Subtitle -->
+        <div class="subtitle">
+            <p>BCG+ (Cobblemon)</p>
+        </div>
+    
+        <!-- Wave Design -->
+        <div class="wave-container">
+            <!-- Wave 1 -->
+            <svg class="wave-layer" viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#4682B4" stop-opacity="1" />
+                        <stop offset="100%" stop-color="#87CEFA" stop-opacity="0.8" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#wave-gradient-1)" d="M0,50 C300,100 900,0 1200,50 L1200,100 L0,100 Z">
+                    <animate
+                        attributeName="d"
+                        dur="8s"
+                        repeatCount="indefinite"
+                        values="
+                            M0,50 C300,100 900,0 1200,50 L1200,100 L0,100 Z;
+                            M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z;
+                            M0,50 C300,100 900,0 1200,50 L1200,100 L0,100 Z;
+                        "
+                    />
+                </path>
+            </svg>
+    
+            <!-- Wave 2 -->
+            <svg class="wave-layer" viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="opacity: 0.6;">
+                <defs>
+                    <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#4682B4" stop-opacity="0.5" />
+                        <stop offset="100%" stop-color="#1E90FF" stop-opacity="0.3" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#wave-gradient-2)" d="M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z">
+                    <animate
+                        attributeName="d"
+                        dur="10s"
+                        repeatCount="indefinite"
+                        values="
+                            M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z;
+                            M0,50 C300,100 900,0 1200,50 L1200,100 L0,100 Z;
+                            M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z;
+                        "
+                    />
+                </path>
+            </svg>
+        </div>
+    </header>     
 
     <!-- Navigation -->
     <nav>
@@ -27,57 +76,63 @@
       <a href="#">Items</a>
       <a href="#">Contact</a>
     </nav>
-  <!-- Filters -->
-  <div class="filters">
-    <select>
-      <option>Type</option>
-      <option>Grass</option>
-      <option>Fire</option>
-    </select>
-    <select>
-      <option>Weakness</option>
-      <option>Electric</option>
-    </select>
-    <select>
-      <option>Ability</option>
-    </select>
-    <button>Sort: Ascending</button>
-  </div>
-  <!-- Pokémon Grid -->
-  <div class="card-grid">
-    <div class="pokemon-card">
-      <img src="https://via.placeholder.com/100" alt="Chimchar">
-      <div class="name">Chimchar</div>
-      <div class="dex-number">#390</div>
-      <div class="types">
-        <span class="type-badge type-fire">Fire</span>
-      </div>
+
+    <!-- Filters -->
+    <div class="filters">
+        <select>
+            <option>Type</option>
+            <option>Grass</option>
+            <option>Fire</option>
+        </select>
+        <select>
+            <option>Weakness</option>
+            <option>Electric</option>
+        </select>
+        <select>
+            <option>Ability</option>
+        </select>
+        <button>Sort: Ascending</button>
     </div>
-    <div class="pokemon-card">
-      <img src="https://via.placeholder.com/100" alt="Turtwig">
-      <div class="name">Turtwig</div>
-      <div class="dex-number">#387</div>
-      <div class="types">
-        <span class="type-badge type-grass">Grass</span>
-      </div>
+
+    <!-- Pokémon Grid -->
+    <div class="card-grid">
+        <div class="pokemon-card">
+            <img src="https://via.placeholder.com/100" alt="Chimchar">
+            <div class="name">Chimchar</div>
+            <div class="dex-number">#390</div>
+            <div class="types">
+                <span class="type-badge type-fire">Fire</span>
+            </div>
+        </div>
+        <div class="pokemon-card">
+            <img src="https://via.placeholder.com/100" alt="Turtwig">
+            <div class="name">Turtwig</div>
+            <div class="dex-number">#387</div>
+            <div class="types">
+                <span class="type-badge type-grass">Grass</span>
+            </div>
+        </div>
+        <div class="pokemon-card">
+            <img src="https://via.placeholder.com/100" alt="Piplup">
+            <div class="name">Piplup</div>
+            <div class="dex-number">#393</div>
+            <div class="types">
+                <span class="type-badge type-water">Water</span>
+            </div>
+        </div>
+        <div class="pokemon-card">
+            <img src="https://via.placeholder.com/100" alt="Pikachu">
+            <div class="name">Pikachu</div>
+            <div class="dex-number">#025</div>
+            <div class="types">
+                <span class="type-badge type-electric">Electric</span>
+            </div>
+        </div>
     </div>
-    <div class="pokemon-card">
-      <img src="https://via.placeholder.com/100" alt="Piplup">
-      <div class="name">Piplup</div>
-      <div class="dex-number">#393</div>
-      <div class="types">
-        <span class="type-badge type-water">Water</span>
-      </div>
-    </div>
-    <div class="pokemon-card">
-      <img src="https://via.placeholder.com/100" alt="Pikachu">
-      <div class="name">Pikachu</div>
-      <div class="dex-number">#025</div>
-      <div class="types">
-        <span class="type-badge type-electric">Electric</span>
-      </div>
-    </div>
-  </div>
-  
+
+    <!-- Footer -->
+    <footer>
+        Cobblemon Dex © 2024
+    </footer>
 </body>
 </html>

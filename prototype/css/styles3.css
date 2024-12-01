@@ -3,93 +3,68 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    /*background: linear-gradient(120deg, #eef2f3, #ffffff);*/
-    background: #474545 url('../data/dark-grey-terrazzo.png');
-    background-size: auto;
-    background-repeat: repeat;
+    background: #474545 url('../data/dark-grey-terrazzo.png') repeat; /* Textured background */
     background-blend-mode: soft-light;
-    overflow-x: hidden; /* Prevent horizontal scroll from blobs */
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
   
 /* Header */
 header {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Align title to the left and subtitle to the right */
     align-items: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Light background for contrast */
-    border-radius: 15px;
-    margin: 1rem auto;
+    padding: 1rem 2rem;
+    background: linear-gradient(120deg, #85d992, #78c850); /* Green gradient */
+    border-radius: 25px;
     max-width: 1200px;
+    margin: 1rem auto;
+    height: 80px; /* Increased height for waves */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    z-index: 1;
   }
   
-  /* Title and Subtitle */
-  header .title {
-    font-size: 2rem;
+  /* Title */
+  .title {
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #3b4cca;
-    z-index: 2;
-  }
-  header .subtitle {
-    font-size: 1rem;
-    color: #888;
-    z-index: 2;
+    color: #3b4cca; /* Dark blue */
+    margin: 0;
+    z-index: 10;
+    text-align: left; /* Ensure left alignment */
   }
   
-  /* Halftone Pattern */
-  header::before {
-    content: '';
+  /* Subtitle */
+  .subtitle {
+    font-size: 1rem;
+    color: #f08030; /* Orange */
+    z-index: 10;
+    text-align: left; /* Keep normal alignment */
+  }
+  
+  /* Wave Container */
+  .wave-container {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, black 2px, transparent 1px);
-    background-size: 8px 8px; /* Adjust dot spacing */
-    opacity: 0.1; /* Make the pattern subtle */
-    z-index: 0; /* Place behind the text */
-    pointer-events: none; /* Ensure it doesn't interfere with interaction */
+    pointer-events: none; /* Disable interaction */
   }
   
-  /* Animated Blobs */
-  .blob {
+  .wave-layer {
     position: absolute;
-    width: 380px;
-    height: 380px;
-    border-radius: 50%; /* Circular shape */
-    filter: blur(2px); /* Soft glow effect */
-    z-index: 0; /* Behind text */
-    mix-blend-mode:darken;/* blend mode */
-    animation: float 6s ease-in-out infinite; /* Smooth floating motion */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
   }
   
-  .blob-left {
-    background: linear-gradient(135deg, #85d992, #78c850); /* Grass-green tones */
-    top: -50px;
-    left: -50px; /* Positioned slightly outside the header */
+  .wave {
+    opacity: 0.8;
   }
-  
-  .blob-right {
-    background: linear-gradient(135deg, #f08030, #f9a875); /* Fire-orange tones */
-    bottom: -80px;
-    right: -50px; /* Positioned slightly outside the header */
-    animation-delay: 3s; /* Offset animation for variety */
-  }
-  
-  /* Float Animation */
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }  
   
   /* Navigation */
   nav {
@@ -102,52 +77,21 @@ header {
     border-radius: 10px;
     max-width: 1200px;
   }
+  
   nav a {
     margin: 0 1.5rem;
     font-weight: bold;
     color: #555;
     transition: color 0.3s ease, border-bottom 0.3s ease;
   }
+  
   nav a.active {
     border-bottom: 2px solid #ffcb05; /* Highlight active section */
     color: #ffcb05;
   }
+  
   nav a:hover {
     color: #ffcb05;
-  }
-  
-  /* Search Bar */
-  .search-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem auto;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f9f9f9, #ececec);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    max-width: 1200px;
-  }
-  .search-bar input {
-    width: 70%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 10px 0 0 10px;
-    font-size: 1rem;
-  }
-  .search-bar button {
-    background: #ffcb05;
-    color: #3b4cca;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .search-bar button:hover {
-    background: #e0b204; /* Slightly darker yellow */
   }
   
   /* Filters */
@@ -161,6 +105,7 @@ header {
     border-radius: 10px;
     max-width: 1200px;
   }
+  
   .filters select {
     padding: 0.8rem;
     border: 1px solid #ccc;
@@ -170,59 +115,37 @@ header {
     background: #f9f9f9;
     transition: border-color 0.3s ease;
   }
+  
   .filters select:hover {
     border-color: #3b4cca; /* Highlight border on hover */
   }
-
   
-/* Card Grid Container */
-.card-grid {
+  .filters button {
+    background: #ffcb05;
+    color: #3b4cca;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .filters button:hover {
+    background: #e0b204;
+  }
+  
+  /* Card Grid */
+  .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 1rem;
     padding: 2rem;
     max-width: 90%; /* Same width as the nav or filter bar */
-    margin: 0 auto; /* Centers the grid */
+    margin: 0 auto;
   }
   
-  /* Individual Cards */
-  .card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Card Hover Effect */
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }  
-
-  @media (max-width: 768px) {
-    .card-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 cards per row for tablets */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .card-grid {
-      grid-template-columns: 1fr; /* 1 card per row for small screens */
-    }
-  }
-  /* Grid Container */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 1rem;
-    padding: 2rem;
-  }
-  
-  /* Pokemon Card */
   .pokemon-card {
     background: white;
     border-radius: 10px;
@@ -237,36 +160,31 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  /* Pokemon Image */
   .pokemon-card img {
     width: 100px;
     height: 100px;
     margin-bottom: 1rem;
-    border-radius: 50%; /* Optional rounded image */
-    background: #f5f5f5; /* Placeholder background */
+    border-radius: 50%;
+    background: #f5f5f5;
     padding: 10px;
   }
   
-  /* Pokemon Name */
   .pokemon-card .name {
     font-weight: bold;
     font-size: 1.2rem;
     margin: 0.5rem 0;
   }
   
-  /* Dex Number */
   .pokemon-card .dex-number {
     color: #888;
     font-size: 1rem;
     margin-bottom: 1rem;
   }
   
-  /* Types Section */
   .pokemon-card .types {
     margin-top: 1rem;
   }
   
-  /* Type Badges */
   .type-badge {
     display: inline-block;
     padding: 0.3rem 0.6rem;
@@ -277,16 +195,18 @@ header {
     text-transform: capitalize;
   }
   
-  /* Type-Specific Colors */
   .type-fire {
     background: #f08030;
   }
+  
   .type-grass {
     background: #78c850;
   }
+  
   .type-water {
     background: #6890f0;
   }
+  
   .type-electric {
     background: #f8d030;
   }
@@ -298,7 +218,7 @@ header {
     width: 100%;
     background: linear-gradient(135deg, #3b4cca, #2a377d); /* Deep blue tones */
     color: white;
-    height: 100px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
