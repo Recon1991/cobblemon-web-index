@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script>
+        function toggleFilters() {
+            const filterOptions = document.querySelector('.filter-options');
+            if (filterOptions.style.display === 'none' || filterOptions.style.display === '') {
+                filterOptions.style.display = 'flex';
+            } else {
+                filterOptions.style.display = 'none';
+            }
+        }
+    </script>
+    
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +56,7 @@
             <!-- Wave 2 -->
             <svg class="wave-layer" viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="opacity: 0.6;">
                 <defs>
-                    <linearGradient id="wave-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="wave-gradient-2" x1="-10%" y1="-10%" x2="120%" y2="120%">
                         <stop offset="0%" stop-color="#4682B4" stop-opacity="0.5" />
                         <stop offset="100%" stop-color="#1E90FF" stop-opacity="0.3" />
                     </linearGradient>
@@ -53,7 +64,7 @@
                 <path fill="url(#wave-gradient-2)" d="M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z">
                     <animate
                         attributeName="d"
-                        dur="10s"
+                        dur="12s"
                         repeatCount="indefinite"
                         values="
                             M0,60 C300,90 900,10 1200,60 L1200,100 L0,100 Z;
@@ -79,19 +90,27 @@
 
     <!-- Filters -->
     <div class="filters">
-        <select>
-            <option>Type</option>
-            <option>Grass</option>
-            <option>Fire</option>
-        </select>
-        <select>
-            <option>Weakness</option>
-            <option>Electric</option>
-        </select>
-        <select>
-            <option>Ability</option>
-        </select>
-        <button>Sort: Ascending</button>
+        <button class="filter-toggle-button" onclick="toggleFilters()">Filters</button>
+        <div class="filter-options">
+            <input type="text" placeholder="Search by name or dex number" class="search-box">
+            <button class="search-button">
+                Search
+                <img src="path/to/google-master-icon-pack/search-icon.svg" alt="Search Icon">
+            </button>
+            <select>
+                <option>Type</option>
+                <option>Grass</option>
+                <option>Fire</option>
+            </select>
+            <select>
+                <option>Weakness</option>
+                <option>Electric</option>
+            </select>
+            <select>
+                <option>Ability</option>
+            </select>
+            <button>Sort: Ascending</button>
+        </div>
     </div>
 
     <!-- Pokémon Grid -->

@@ -38,7 +38,7 @@ header {
   /* Subtitle */
   .subtitle {
     font-size: 1rem;
-    color: #f08030; /* Orange */
+    color: #1f1c1a; /* Orange */
     z-index: 10;
     text-align: left; /* Keep normal alignment */
   }
@@ -135,6 +135,47 @@ header {
   .filters button:hover {
     background: #e0b204;
   }
+
+  /* Search Box Styling */
+  .filters .search-box {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+    margin-right: 1rem; /* Adds some spacing between the search box and the dropdowns */
+    width: 250px; /* Adjust as needed for desired width */
+  }
+
+  .filters .search-box:focus {
+    border-color: #3b4cca; /* Highlight border on focus */
+  }
+
+  .filters .search-button {
+    background: #3b4cca;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .filters .search-button:hover {
+    background: #2a377d;
+  }
+
+  .filters .search-button img {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+  }
   
   /* Card Grid */
   .card-grid {
@@ -225,4 +266,33 @@ header {
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
+  @media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-options {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .filter-toggle-button {
+        background-color: #3b4cca;
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .filter-toggle-button:hover {
+        background-color: #2a377d;
+    }
+}
