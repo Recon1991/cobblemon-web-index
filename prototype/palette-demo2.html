@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Samples</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #3a68ad url('data/my-little-plaid.png') repeat;
+            background-size: auto;
+            color: #333;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .palette {
+            margin-bottom: 3rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: #dfdfdf;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .palette-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .colors {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .color {
+            width: 150px;
+            height: 100px;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .color-code {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .demo {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .demo-header {
+            width: 97%;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .demo-button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .demo-content {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            color: #333;
+        }
+        .mockup {
+            margin-top: 2rem;
+            width: 97%;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mockup-header {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        .mockup-cards {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .mockup-card {
+            width: 200px;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Palette Demo: Iteration from Selected Palette</h1>
+
+    <!-- Original New Palette Iteration -->
+    <div class="palette">
+        <div class="palette-title">New Palette Iteration</div>
+        <div class="colors">
+            <div class="color" style="background-color: #f8f5f2; color: #333;">Light Cream<div class="color-code">#f8f5f2</div></div>
+            <div class="color" style="background-color: #f45d48;">Coral Red<div class="color-code">#f45d48</div></div>
+            <div class="color" style="background-color: #078080;">Teal<div class="color-code">#078080</div></div>
+            <div class="color" style="background-color: #232323;">Charcoal<div class="color-code">#232323</div></div>
+            <div class="color" style="background-color: #fffffe; color: #333;">White<div class="color-code">#fffffe</div></div>
+            <div class="color" style="background-color: #222525;">Dark Gray<div class="color-code">#222525</div></div>
+        </div>
+        <div class="demo">
+            <div class="demo-header" style="background-color: #f45d48;">Header Example</div>
+            <button class="demo-button" style="background-color: #078080;">Button Example</button>
+            <div class="demo-content" style="background-color: #f8f5f2; color: #333;">Content Box Example</div>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header" style="background-color: #f45d48;">Dashboard Example</div>
+            <div class="mockup-cards">
+                <div class="mockup-card" style="background-color: #f8f5f2;">Card 1</div>
+                <div class="mockup-card" style="background-color: #078080; color: #fff;">Card 2</div>
+                <div class="mockup-card" style="background-color: #232323; color: #fff;">Card 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pokédex Inspired Palette -->
+    <div class="palette">
+        <div class="palette-title">Pokédex Inspired Palette</div>
+        <div class="colors">
+            <div class="color" style="background-color: #00e7ff;">Glowing Blue<div class="color-code">#00e7ff</div></div>
+            <div class="color" style="background-color: #101010;">Dark Black<div class="color-code">#101010</div></div>
+            <div class="color" style="background-color: #00ffff;">Electric Cyan<div class="color-code">#00ffff</div></div>
+            <div class="color" style="background-color: #4de1ff;">Holo Glow<div class="color-code">#4de1ff</div></div>
+            <div class="color" style="background-color: #ff8800;">Accent Orange<div class="color-code">#ff8800</div></div>
+        </div>
+        <div class="demo">
+            <div class="demo-header" style="background-color: #00e7ff;">Header Example</div>
+            <button class="demo-button" style="background-color: #ff8800;">Button Example</button>
+            <div class="demo-content" style="background-color: #101010; color: #fff;">Content Box Example</div>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header" style="background-color: #00e7ff;">Dashboard Example</div>
+            <div class="mockup-cards">
+                <div class="mockup-card" style="background-color: #101010; color: #fff;">Card 1</div>
+                <div class="mockup-card" style="background-color: #00ffff; color: #000;">Card 2</div>
+                <div class="mockup-card" style="background-color: #4de1ff; color: #000;">Card 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add more themed palettes as needed -->
+
+</body>
+</html>

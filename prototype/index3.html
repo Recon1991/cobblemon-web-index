@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script>
-        function toggleFilters() {
-            const filterOptions = document.querySelector('.filter-options');
-            if (filterOptions.style.display === 'none' || filterOptions.style.display === '') {
-                filterOptions.style.display = 'flex';
-            } else {
-                filterOptions.style.display = 'none';
-            }
-        }
-    </script>
-    
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +11,10 @@
         <!-- Title -->
         <div class="title">
             <h1>Cobblemon Dex</h1>
-        </div>
-    
-        <!-- Subtitle -->
-        <div class="subtitle">
-            <p>BCG+ (Cobblemon)</p>
-        </div>
+        
+        <!-- Menu Toggle Button -->
+        <button class="menu-toggle-button">☰</button>
+</div>
     
         <!-- Wave Design -->
         <div class="wave-container">
@@ -77,40 +64,72 @@
         </div>
     </header>     
 
-    <!-- Navigation -->
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#">Dex</a>
-      <a href="#">Cobblemon</a>
-      <a href="#">Moves</a>
-      <a href="#">Biomes</a>
-      <a href="#">Items</a>
-      <a href="#">Contact</a>
-    </nav>
+    <!-- Side Menu Navigation -->
+    <div class="side-menu">
+        <nav class="menu-nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Dex</a>
+          <a href="#">Cobblemon</a>
+          <a href="#">Moves</a>
+          <a href="#">Biomes</a>
+          <a href="#">Items</a>
+          <a href="#">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <input type="text" placeholder="Search by name or dex number" class="search-box">
+        <button class="search-button">
+            Search
+            <img src="path/to/google-master-icon-pack/search-icon.svg" alt="Search Icon">
+        </button>
+    </div>
 
     <!-- Filters -->
     <div class="filters">
-        <button class="filter-toggle-button" onclick="toggleFilters()">Filters</button>
-        <div class="filter-options">
-            <input type="text" placeholder="Search by name or dex number" class="search-box">
-            <button class="search-button">
-                Search
-                <img src="path/to/google-master-icon-pack/search-icon.svg" alt="Search Icon">
-            </button>
-            <select>
-                <option>Type</option>
-                <option>Grass</option>
-                <option>Fire</option>
-            </select>
-            <select>
-                <option>Weakness</option>
-                <option>Electric</option>
-            </select>
-            <select>
-                <option>Ability</option>
-            </select>
-            <button>Sort: Ascending</button>
-        </div>
+        <select>
+            <option>All Generations</option>
+            <option>Generation 1</option>
+            <option>Generation 2</option>
+            <option>Generation 3</option>
+            <option>Generation 4</option>
+            <option>Generation 5</option>
+            <option>Generation 6</option>
+            <option>Generation 7</option>
+            <option>Generation 8</option>
+            <option>Generation 9</option>
+        </select>
+        <select>
+            <option>All Types</option>
+            <option>Normal</option>
+            <option>Fire</option>
+            <option>Fighting</option>
+            <option>Water</option>
+            <option>Flying</option>
+            <option>Grass</option>
+            <option>Poison</option>
+            <option>Electric</option>
+            <option>Ground</option>
+            <option>Psychic</option>
+            <option>Rock</option>
+            <option>Ice</option>
+            <option>Bug</option>
+            <option>Dragon</option>
+            <option>Ghost</option>
+            <option>Dark</option>
+            <option>Steel</option>
+            <option>Fairy</option>
+        </select>
+        <select>
+            <option>All Forms</option>
+            <option>Alolan</option>
+            <option>Galarian</option>
+            <option>Hisuian</option>
+            <option>Paldean</option>
+            <option>Mega</option>
+        </select>
+        <button>Sort: Ascending</button>
     </div>
 
     <!-- Pokémon Grid -->
@@ -153,5 +172,12 @@
     <footer>
         Cobblemon Dex © 2024
     </footer>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.querySelector('.menu-toggle-button').addEventListener('click', function() {
+            document.querySelector('.side-menu').classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

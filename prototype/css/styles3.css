@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #474545 url('../data/dark-grey-terrazzo.png') repeat; /* Textured background */
+    background: #3a68ad url('../data/my-little-plaid.png') repeat; /* Textured background */
     background-blend-mode: soft-light;
     color: #333;
     overflow-x: hidden; /* Prevent horizontal scroll */
@@ -13,7 +13,7 @@ body {
 header {
     position: relative;
     display: flex;
-    justify-content: space-between; /* Align title to the left and subtitle to the right */
+    justify-content: space-between; /* Align title to the left and menu toggle to the right */
     align-items: center;
     padding: 1rem 2rem;
     background: linear-gradient(120deg, #85d992, #78c850); /* Green gradient */
@@ -35,41 +35,75 @@ header {
     text-align: left; /* Ensure left alignment */
   }
   
-  /* Subtitle */
-  .subtitle {
-    font-size: 1rem;
-    color: #1f1c1a; /* Orange */
-    z-index: 10;
-    text-align: left; /* Keep normal alignment */
+  /* Side Menu */
+  .side-menu {
+    position: fixed;
+    left: -20px; /* Adjusted to make the edge peek out */
+    top: 20px; /* Added spacing from the top */
+    height: calc(100% - 40px); /* Added spacing from the top and bottom */
+    width: 250px;
+    background: #3b4cca;
+    color: white;
+    transform: translateX(-90%);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    overflow: hidden; /* Prevent dividers from extending outside the menu */
+    border-top-right-radius: 20px; /* Rounded top right corner */
+    border-bottom-right-radius: 20px; /* Rounded bottom right corner */
   }
-  
-  /* Wave Container */
-  .wave-container {
+
+  .side-menu.open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle-button {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Disable interaction */
+    top: 1rem;
+    right: 2rem;
+    background: #3b4cca;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 30;
+    transition: background 0.3s ease;
   }
-  
-  .wave-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 1;
+
+  .menu-toggle-button:hover {
+    background: #2a377d;
   }
-  
-  .wave {
-    opacity: 0.8;
+
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    align-items: center;
   }
-  
-  /* Navigation */
-  nav {
+
+  .menu-nav a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    width: calc(100% - 20px); /* Make sure the border fits within the menu */
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #2a377d;
+    transition: background 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+  }
+
+  .menu-nav a:hover {
+    background: #2a377d;
+  }
+
+  /* Search Section */
+  .search-section {
     display: flex;
     justify-content: center;
+    align-items: center;
     background: white;
     margin: 0 auto 1rem;
     padding: 1rem;
@@ -77,36 +111,8 @@ header {
     border-radius: 10px;
     max-width: 1200px;
   }
-  
-  nav a {
-    margin: 0 1.5rem;
-    font-weight: bold;
-    color: #555;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-  }
-  
-  nav a.active {
-    border-bottom: 2px solid #ffcb05; /* Highlight active section */
-    color: #ffcb05;
-  }
-  
-  nav a:hover {
-    color: #ffcb05;
-  }
-  
-  /* Filters */
-  .filters {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f9f9f9, #ececec);
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    max-width: 1200px;
-  }
-  
-  .filters select {
+
+  .search-section .search-box {
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -114,46 +120,15 @@ header {
     color: #333;
     background: #f9f9f9;
     transition: border-color 0.3s ease;
-  }
-  
-  .filters select:hover {
-    border-color: #3b4cca; /* Highlight border on hover */
-  }
-  
-  .filters button {
-    background: #ffcb05;
-    color: #3b4cca;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .filters button:hover {
-    background: #e0b204;
+    margin-right: 1rem;
+    width: 50%;
   }
 
-  /* Search Box Styling */
-  .filters .search-box {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    background: #f9f9f9;
-    transition: border-color 0.3s ease;
-    margin-right: 1rem; /* Adds some spacing between the search box and the dropdowns */
-    width: 250px; /* Adjust as needed for desired width */
+  .search-section .search-box:focus {
+    border-color: #3b4cca;
   }
 
-  .filters .search-box:focus {
-    border-color: #3b4cca; /* Highlight border on focus */
-  }
-
-  .filters .search-button {
+  .search-section .search-button {
     background: #3b4cca;
     color: white;
     border: none;
@@ -167,23 +142,70 @@ header {
     align-items: center;
   }
 
-  .filters .search-button:hover {
+  .search-section .search-button:hover {
     background: #2a377d;
   }
 
-  .filters .search-button img {
+  .search-section .search-button img {
     width: 20px;
     height: 20px;
     margin-left: 0.5rem;
   }
   
+  /* Filters */
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1200px;
+  }
+
+  .filters select, .filters button {
+    flex: 1;
+    margin: 0 0.5rem;
+  }
+
+  .filters select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  .filters select:hover {
+    border-color: #3b4cca;
+  }
+  
+  .filters button {
+    background: #ffcb05;
+    color: #3b4cca;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .filters button:hover {
+    background: #e0b204;
+  }
+  
   /* Card Grid */
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     padding: 2rem;
-    max-width: 90%; /* Same width as the nav or filter bar */
+    max-width: 90%;
     margin: 0 auto;
   }
   
@@ -257,7 +279,7 @@ header {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(135deg, #3b4cca, #2a377d); /* Deep blue tones */
+    background: linear-gradient(135deg, #3b4cca, #2a377d);
     color: white;
     height: 30px;
     display: flex;
@@ -266,33 +288,3 @@ header {
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-
-  @media (max-width: 768px) {
-    .filters {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .filter-options {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .filter-toggle-button {
-        background-color: #3b4cca;
-        color: white;
-        border: none;
-        padding: 0.8rem;
-        font-size: 1rem;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .filter-toggle-button:hover {
-        background-color: #2a377d;
-    }
-}
