@@ -1,290 +1,347 @@
 /* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #3a68ad url('../data/my-little-plaid.png') repeat; /* Textured background */
-    background-blend-mode: soft-light;
-    color: #333;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #567c6d url('../data/my-little-plaid.png') repeat; /* Textured background */
+  background-blend-mode: soft-light;
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 /* Header */
 header {
-    position: relative;
-    display: flex;
-    justify-content: space-between; /* Align title to the left and menu toggle to the right */
-    align-items: center;
-    padding: 1rem 2rem;
-    background: linear-gradient(120deg, #85d992, #78c850); /* Green gradient */
-    border-radius: 25px;
-    max-width: 1200px;
-    margin: 1rem auto;
-    height: 80px; /* Increased height for waves */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-  
-  /* Title */
-  .title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #3b4cca; /* Dark blue */
-    margin: 0;
-    z-index: 10;
-    text-align: left; /* Ensure left alignment */
-  }
-  
-  /* Side Menu */
-  .side-menu {
-    position: fixed;
-    left: -20px; /* Adjusted to make the edge peek out */
-    top: 20px; /* Added spacing from the top */
-    height: calc(100% - 40px); /* Added spacing from the top and bottom */
-    width: 250px;
-    background: #3b4cca;
-    color: white;
-    transform: translateX(-90%);
-    transition: transform 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 20;
-    overflow: hidden; /* Prevent dividers from extending outside the menu */
-    border-top-right-radius: 20px; /* Rounded top right corner */
-    border-bottom-right-radius: 20px; /* Rounded bottom right corner */
-  }
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Align title to the left and menu toggle to the right */
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(120deg, #85d992, #78c850); /* Green gradient */
+  border-radius: 25px;
+  max-width: 1200px;
+  margin: 1rem auto;
+  height: 80px; /* Increased height for waves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
 
-  .side-menu.open {
-    transform: translateX(0);
-  }
+/* Title */
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3b4cca; /* Dark blue */
+  margin: 0;
+  z-index: 10;
+  text-align: left; /* Ensure left alignment */
+}
 
-  .menu-toggle-button {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    background: #3b4cca;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 30;
-    transition: background 0.3s ease;
-  }
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  left: -20px; /* Adjusted to make the edge peek out */
+  top: 20px; /* Added spacing from the top */
+  height: calc(100% - 40px); /* Added spacing from the top and bottom */
+  width: 250px;
+  background: #3b4cca;
+  color: white;
+  transform: translateX(-90%);
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  overflow: hidden; /* Prevent dividers from extending outside the menu */
+  border-top-right-radius: 20px; /* Rounded top right corner */
+  border-bottom-right-radius: 20px; /* Rounded bottom right corner */
+}
 
-  .menu-toggle-button:hover {
-    background: #2a377d;
-  }
+.side-menu.open {
+  transform: translateX(0);
+}
 
-  .menu-nav {
-    display: flex;
-    flex-direction: column;
-    padding-top: 3rem;
-    align-items: center;
-  }
+.menu-toggle-button {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: #3b4cca;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 30;
+  transition: background 0.3s ease;
+}
 
-  .menu-nav a {
-    text-decoration: none;
-    color: white;
-    padding: 1rem;
-    width: calc(100% - 20px); /* Make sure the border fits within the menu */
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 1px solid #2a377d;
-    transition: background 0.3s ease;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-  }
+.menu-toggle-button:hover {
+  background: #2a377d;
+}
 
-  .menu-nav a:hover {
-    background: #2a377d;
-  }
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  align-items: center;
+}
 
-  /* Search Section */
-  .search-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    margin: 0 auto 1rem;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    max-width: 1200px;
-  }
+.menu-nav a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  width: calc(100% - 20px); /* Make sure the border fits within the menu */
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #2a377d;
+  transition: background 0.3s ease;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
 
-  .search-section .search-box {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    background: #f9f9f9;
-    transition: border-color 0.3s ease;
-    margin-right: 1rem;
-    width: 50%;
-  }
+.menu-nav a:hover {
+  background: #2a377d;
+}
 
-  .search-section .search-box:focus {
-    border-color: #3b4cca;
-  }
+/* Search Section */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 1200px;
+}
 
-  .search-section .search-button {
-    background: #3b4cca;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
+.search-section .search-box {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+  margin-right: 1rem;
+  width: 50%;
+}
 
-  .search-section .search-button:hover {
-    background: #2a377d;
-  }
+.search-section .search-box:focus {
+  border-color: #3b4cca;
+}
 
-  .search-section .search-button img {
-    width: 20px;
-    height: 20px;
-    margin-left: 0.5rem;
-  }
-  
-  /* Filters */
-  .filters {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f9f9f9, #ececec);
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    max-width: 1200px;
-  }
+.search-section .search-button {
+  background: #3b4cca;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+}
 
-  .filters select, .filters button {
-    flex: 1;
-    margin: 0 0.5rem;
-  }
+.search-section .search-button:hover {
+  background: #2a377d;
+}
 
-  .filters select {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    background: #f9f9f9;
-    transition: border-color 0.3s ease;
-  }
-  
-  .filters select:hover {
-    border-color: #3b4cca;
-  }
-  
-  .filters button {
-    background: #ffcb05;
-    color: #3b4cca;
-    border: none;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .filters button:hover {
-    background: #e0b204;
-  }
-  
-  /* Card Grid */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  
-  .pokemon-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .pokemon-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-    border-radius: 50%;
-    background: #f5f5f5;
-    padding: 10px;
-  }
-  
-  .pokemon-card .name {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .pokemon-card .dex-number {
-    color: #888;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .pokemon-card .types {
-    margin-top: 1rem;
-  }
-  
-  .type-badge {
-    display: inline-block;
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    color: white;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-  
-  .type-fire {
-    background: #f08030;
-  }
-  
-  .type-grass {
-    background: #78c850;
-  }
-  
-  .type-water {
-    background: #6890f0;
-  }
-  
-  .type-electric {
-    background: #f8d030;
-  }
-  
-  /* Footer */
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #3b4cca, #2a377d);
-    color: white;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.search-section .search-button img {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f9f9f9, #ececec);
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.filters select, .filters button {
+  flex: 1;
+  margin: 0 0.5rem;
+}
+
+.filters select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.filters select:hover {
+  border-color: #3b4cca;
+}
+
+.filters button {
+  background: #ffcb05;
+  color: #3b4cca;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filters button:hover {
+  background: #e0b204;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.pokemon-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+.pokemon-card .name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.pokemon-card .dex-number {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pokemon-card .types {
+  margin-top: 1rem;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.type-fire {
+  background: #f08030;
+}
+
+.type-grass {
+  background: #78c850;
+}
+
+.type-water {
+  background: #6890f0;
+}
+
+.type-electric {
+  background: #f8d030;
+}
+
+.type-psychic {
+  background: #f85888;
+}
+
+.type-normal {
+  background: #a8a878;
+}
+
+.type-poison {
+  background: #a040a0;
+}
+
+.type-ground {
+  background: #e0c068;
+}
+
+.type-flying {
+  background: #a890f0;
+}
+
+.type-rock {
+  background: #b8a038;
+}
+
+.type-bug {
+  background: #a8b820;
+}
+
+.type-ghost {
+  background: #705898;
+}
+
+.type-dark {
+  background: #705848;
+}
+
+.type-steel {
+  background: #b8b8d0;
+}
+
+.type-ice {
+  background: #98d8d8;
+}
+
+.type-dragon {
+  background: #7038f8;
+}
+
+.type-fairy {
+  background: #ee99ac;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #3b4cca, #2a377d);
+  color: white;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Spacer for footer to prevent overlap */
+.footer-spacer {
+  height: 60px; /* Adjust height to match footer's height and padding */
+}
