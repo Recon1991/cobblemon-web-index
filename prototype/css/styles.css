@@ -1,99 +1,245 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-}
-
-body, html {
-    font-family: Arial, sans-serif;
+/* General reset and styling */
+body {
     margin: 0;
-    padding: 0;
-    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: #16161a  url('../data/my-little-plaid.png') repeat; /* Textured background */
+    background-blend-mode: soft-light;
+}
+
+.outer-frame {
     display: flex;
     flex-direction: column;
-}
-
-header .header-wave {
-    position: relative;
-    top: -10px; /* Adjust to blend the wave */
-}
-
-header nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-}
-
-header nav a:hover {
-    text-decoration: underline;
-}
-
-.dex {
-    text-align: center;
-    margin: 40px auto;
-}
-
-h1 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600; /* Ensure the weight matches SemiBold */
-    text-transform: uppercase; /* Optional: Customize header appearance */
-    letter-spacing: 1px; /* Optional: Add spacing for readability */
-}
-
-main {
-    text-align: center;
-    flex: 1; /* Takes up available space, pushing footer to the bottom */
-    padding: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    background: #3b4cca;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.btn:hover {
-    background: #2a359c;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(145deg, #3b4cca, #f8d030); /* Gradient background */
-    height: 100px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 20px 20px 0 0; /* Rounded corners */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    color: white;
-    padding: 10px 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background: #16161a;
+    position: relative;
+}
+
+.outer-frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../data/light-aluminum.png') repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Embossed Header / Navigation Styling */
+.embossed-header {
+    width: 97%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: #242629;
+    box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.4), inset -4px -4px 3px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.embossed-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../data/diagmonds.png') repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.title h1 {
+    margin: 0;
+    color: #fffffe;
+    font-size: 2rem;
     text-align: center;
 }
 
-footer .footer-wave {
-    position: relative;
-    top: -10px; /* Adjust to blend the wave */
+.menu-toggle-button {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-.footer-content p {
-    margin: 5px 0;
-    font-size: 1rem;
+.menu-nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-footer:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease;
+.menu-nav a {
+    text-decoration: none;
+    color: #010101;
+    font-weight: bold;
 }
 
-@font-face {
-    font-family: 'Rubik';
-    src: url('../fonts/Rubik-SemiBold.ttf') format('truetype');
-    font-weight: 600; /* Match the SemiBold weight */
-    font-style: normal;
+.menu-nav a.active {
+    color: #f45d48;
+}
+
+/* Inset Boxed Search and Filters Section */
+.inset-boxed-controls {
+    width: 96%;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background: #16161a;
+    box-shadow: inset 5px 5px 12px rgba(0, 0, 0, 0.15), inset -5px -5px 12px rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-section {
+    margin-bottom: 10px;
+}
+
+.search-box {
+    padding: 10px;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 2px solid #232323;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background: #078080;
+    color: #fffffe;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filters select,
+.filters button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #232323;
+    background: #f8f5f2;
+    cursor: pointer;
+}
+
+/* Glassmorphism Pokémon Grid Screen */
+.glass-screen {
+    width: 96%;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.pokemon-card {
+    background: #fffffe;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222525;
+}
+
+.dex-number {
+    color: #078080;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.type-badge {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Footer Styling */
+.embossed-footer {
+    width: 97%;
+    padding: 10px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.6);
+    text-align: center;
+    color: #232323;
+}
+
+/* Type Badge Colors */
+.type-fire {
+    background-color: #f45d48;
+}
+.type-water {
+    background-color: #078080;
+}
+.type-grass {
+    background-color: #00b894;
+}
+.type-electric {
+    background-color: #fbc531;
+}
+.type-normal {
+    background-color: #a8a77a;
+}
+.type-fairy {
+    background-color: #ee99ac;
+}
+.type-ghost {
+    background-color: #735797;
+}
+.type-poison {
+    background-color: #a33ea1;
+}
+.type-psychic {
+    background-color: #f85888;
 }

@@ -1,31 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobblemon Dex</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Pokedex Design</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>BCG Cobblemon Dex</h1>
-            <nav>
-                <a href="dex.html">Cobblemon List</a>
-                <a href="#">About</a>
+    <div class="outer-frame">
+        <!-- Embossed Header / Navigation -->
+        <header class="embossed-header">
+            <div class="title">
+                <h1>Cobblemon Dex</h1>
+                <!-- Menu Toggle Button -->
+                <button class="menu-toggle-button">☰</button>
+            </div>
+            <nav class="menu-nav">
+                <a href="#" class="active">Home</a>
+                <a href="#">Dex</a>
+                <a href="#">Cobblemon</a>
+                <a href="#">Moves</a>
+                <a href="#">Biomes</a>
+                <a href="#">Items</a>
+                <a href="#">Contact</a>
             </nav>
         </header>
-        <main>
-            <h2>Welcome to the BCG Cobblemon Dex!</h2>
-            <p>Browse through a collection of Cobblemon and explore their details.</p>
-            <a href="dex.html" class="btn">View the Dex</a>
-        </main>
-        <footer>
-            <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#3b4cca" d="M0,96L48,101.3C96,107,192,117,288,144C384,171,480,213,576,202.7C672,192,768,128,864,101.3C960,75,1056,85,1152,117.3C1248,149,1344,203,1392,229.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-            <p>&copy; 2024 Cobblemon Project</p>
+
+        <!-- Inset Boxed Search and Filters Section -->
+        <section class="inset-boxed-controls">
+            <div class="search-section">
+                <input type="text" placeholder="Search by name or dex number" class="search-box">
+                <button class="search-button">
+                    Search
+                    <img src="path/to/google-master-icon-pack/search-icon.svg" alt="Search Icon">
+                </button>
+            </div>
+            <div class="filters">
+                <select>
+                    <option>All Generations</option>
+                    <option>Generation 1</option>
+                    <option>Generation 2</option>
+                    <option>Generation 3</option>
+                    <option>Generation 4</option>
+                    <option>Generation 5</option>
+                    <option>Generation 6</option>
+                    <option>Generation 7</option>
+                    <option>Generation 8</option>
+                    <option>Generation 9</option>
+                </select>
+                <select>
+                    <option>All Types</option>
+                    <option>Normal</option>
+                    <option>Fire</option>
+                    <option>Fighting</option>
+                    <option>Water</option>
+                    <option>Flying</option>
+                    <option>Grass</option>
+                    <option>Poison</option>
+                    <option>Electric</option>
+                    <option>Ground</option>
+                    <option>Psychic</option>
+                    <option>Rock</option>
+                    <option>Ice</option>
+                    <option>Bug</option>
+                    <option>Dragon</option>
+                    <option>Ghost</option>
+                    <option>Dark</option>
+                    <option>Steel</option>
+                    <option>Fairy</option>
+                </select>
+                <select>
+                    <option>All Forms</option>
+                    <option>Alolan</option>
+                    <option>Galarian</option>
+                    <option>Hisuian</option>
+                    <option>Paldean</option>
+                    <option>Mega</option>
+                </select>
+                <button>Sort: Ascending</button>
+            </div>
+        </section>
+
+        <!-- Glassmorphism Screen for Pokémon Grid -->
+        <section class="glass-screen">
+            <div class="card-grid">
+                <!-- Pokémon Cards (As Before) -->
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Chimchar">
+                    <div class="name">Chimchar</div>
+                    <div class="dex-number">#390</div>
+                    <div class="types">
+                        <span class="type-badge type-fire">Fire</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Turtwig">
+                    <div class="name">Turtwig</div>
+                    <div class="dex-number">#387</div>
+                    <div class="types">
+                        <span class="type-badge type-grass">Grass</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Piplup">
+                    <div class="name">Piplup</div>
+                    <div class="dex-number">#393</div>
+                    <div class="types">
+                        <span class="type-badge type-water">Water</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Pikachu">
+                    <div class="name">Pikachu</div>
+                    <div class="dex-number">#025</div>
+                    <div class="types">
+                        <span class="type-badge type-electric">Electric</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Bulbasaur">
+                    <div class="name">Bulbasaur</div>
+                    <div class="dex-number">#001</div>
+                    <div class="types">
+                        <span class="type-badge type-grass">Grass</span>
+                        <span class="type-badge type-poison">Poison</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Charmander">
+                    <div class="name">Charmander</div>
+                    <div class="dex-number">#004</div>
+                    <div class="types">
+                        <span class="type-badge type-fire">Fire</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Squirtle">
+                    <div class="name">Squirtle</div>
+                    <div class="dex-number">#007</div>
+                    <div class="types">
+                        <span class="type-badge type-water">Water</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Jigglypuff">
+                    <div class="name">Jigglypuff</div>
+                    <div class="dex-number">#039</div>
+                    <div class="types">
+                        <span class="type-badge type-normal">Normal</span>
+                        <span class="type-badge type-fairy">Fairy</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Eevee">
+                    <div class="name">Eevee</div>
+                    <div class="dex-number">#133</div>
+                    <div class="types">
+                        <span class="type-badge type-normal">Normal</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Gengar">
+                    <div class="name">Gengar</div>
+                    <div class="dex-number">#094</div>
+                    <div class="types">
+                        <span class="type-badge type-ghost">Ghost</span>
+                        <span class="type-badge type-poison">Poison</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Mewtwo">
+                    <div class="name">Mewtwo</div>
+                    <div class="dex-number">#150</div>
+                    <div class="types">
+                        <span class="type-badge type-psychic">Psychic</span>
+                    </div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://via.placeholder.com/100" alt="Snorlax">
+                    <div class="name">Snorlax</div>
+                    <div class="dex-number">#143</div>
+                    <div class="types">
+                        <span class="type-badge type-normal">Normal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="embossed-footer">
+            Cobblemon Dex © 2024
         </footer>
     </div>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script src="js/menu-toggle.js"></script>
 </body>
 </html>
