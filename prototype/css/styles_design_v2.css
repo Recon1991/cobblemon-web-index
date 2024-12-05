@@ -10,13 +10,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 20px auto 20px;
+  padding: 0px;
+  width: 100%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  border: 1px solid rgba(231, 216, 216, 0.699);
-  background: linear-gradient(135deg, #16161a, #1e1e23);
+  /*border: 1px solid rgba(231, 216, 216, 0.699);*/
+  /*background: linear-gradient(135deg, #16161a, #1e1e23);*/
   position: relative;
   overflow: hidden;
 }
@@ -36,12 +34,11 @@ body {
 
 /* Embossed Header / Navigation Styling */
 .embossed-header {
-  width: 97%;
+  width: 100%;
   padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 15px;
+  margin-bottom: 4px;
   background: linear-gradient(135deg, #242629, #2d2d33);
-  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1), 0px 6px 12px 0px rgba(0, 0, 0, 0.3), 0px 8px 24px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +58,10 @@ body {
   border-radius: inherit;
 }
 
+.top-blade, .bottom-blade {
+  width: 100%;
+}
+
 .title h1 {
   margin: 0;
   color: #fffffe;
@@ -71,7 +72,7 @@ body {
 
 .menu-toggle-button {
   position: absolute;
-  right: 20px;
+  right: 80px;
   top: 15px;
   background: #16161a;
   border: none;
@@ -115,9 +116,9 @@ body {
 
 /* Inset Boxed Search and Filters Section */
 .inset-boxed-controls {
-  width: 96%;
-  padding: 25px;
-  border-radius: 20px;
+  width: 100%;
+  z-index: 1;
+  padding: 13px;
   margin-bottom: 20px;
   background: linear-gradient(145deg, #242629, #1e1e23);
   box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1), 0px 6px 12px 0px rgba(0, 0, 0, 0.3), 0px 8px 24px 0px rgba(0, 0, 0, 0.25);
