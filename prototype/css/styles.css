@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #16161a  url('../data/my-little-plaid.png') repeat; /* Textured background */
-    background-blend-mode: soft-light;
+    background: #f9f4ef  url('../data/my-little-plaid-dark.png') repeat; /* Textured background */
+    /*background-blend-mode: soft-light;*/
 }
 
 .outer-frame {
@@ -12,9 +12,10 @@ body {
     align-items: center;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+    border: 1px solid rgba(231, 216, 216, 0.699);
     background: #16161a;
     position: relative;
 }
@@ -37,9 +38,10 @@ body {
     width: 97%;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 15px;
+    border-radius: 11px;
+    /*border: 1px solid rgba(231, 216, 216, 0.212);*/
     background: #242629;
-    box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.4), inset -4px -4px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -1px -1px 0px rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +55,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('../data/diagmonds.png') repeat;
+    background: url('../data/light-sketch.png') repeat;
     opacity: 0.2;
     pointer-events: none;
     border-radius: inherit;
@@ -98,9 +100,8 @@ body {
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
-    background: #16161a;
-    box-shadow: inset 5px 5px 12px rgba(0, 0, 0, 0.15), inset -5px -5px 12px rgba(255, 255, 255, 0.7);
-    display: flex;
+    background: #242629;
+    box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.4), inset -4px -4px 3px rgba(255, 255, 255, 0.1);    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -118,14 +119,33 @@ body {
     margin-right: 10px;
 }
 
+/* Search Button Styling */
 .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Space between icon and text */
     padding: 10px 15px;
     background: #078080;
     color: #fffffe;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: bold;
+    font-size: 1rem; /* Adjust font size */
 }
+
+.search-button:hover {
+    background: #066a6a;
+}
+
+.search-button img {
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+    vertical-align: middle;
+}
+
 
 .filters {
     display: flex;

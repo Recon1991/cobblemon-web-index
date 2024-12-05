@@ -4,81 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futuristic Pokedex Design</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles_design_v2.css">
 </head>
 <body>
     <div class="outer-frame">
-        <!-- Embossed Header / Navigation -->
-        <header class="embossed-header">
-            <div class="title">
-                <h1>Cobblemon Dex</h1>
-                <!-- Menu Toggle Button -->
-                <button class="menu-toggle-button">☰</button>
-            </div>
-            <nav class="menu-nav">
-                <a href="#" class="active">Home</a>
-                <a href="#">Dex</a>
-                <a href="#">Cobblemon</a>
-                <a href="#">Moves</a>
-                <a href="#">Biomes</a>
-                <a href="#">Items</a>
-                <a href="#">Contact</a>
-            </nav>
-        </header>
-
-        <!-- Inset Boxed Search and Filters Section -->
-        <section class="inset-boxed-controls">
-            <div class="search-section">
-                <input type="text" placeholder="Search by name or dex number" class="search-box">
-                <button class="search-button">
-                    Search
-                    <img src="path/to/google-master-icon-pack/search-icon.svg" alt="Search Icon">
-                </button>
-            </div>
-            <div class="filters">
-                <select>
-                    <option>All Generations</option>
-                    <option>Generation 1</option>
-                    <option>Generation 2</option>
-                    <option>Generation 3</option>
-                    <option>Generation 4</option>
-                    <option>Generation 5</option>
-                    <option>Generation 6</option>
-                    <option>Generation 7</option>
-                    <option>Generation 8</option>
-                    <option>Generation 9</option>
-                </select>
-                <select>
-                    <option>All Types</option>
-                    <option>Normal</option>
-                    <option>Fire</option>
-                    <option>Fighting</option>
-                    <option>Water</option>
-                    <option>Flying</option>
-                    <option>Grass</option>
-                    <option>Poison</option>
-                    <option>Electric</option>
-                    <option>Ground</option>
-                    <option>Psychic</option>
-                    <option>Rock</option>
-                    <option>Ice</option>
-                    <option>Bug</option>
-                    <option>Dragon</option>
-                    <option>Ghost</option>
-                    <option>Dark</option>
-                    <option>Steel</option>
-                    <option>Fairy</option>
-                </select>
-                <select>
-                    <option>All Forms</option>
-                    <option>Alolan</option>
-                    <option>Galarian</option>
-                    <option>Hisuian</option>
-                    <option>Paldean</option>
-                    <option>Mega</option>
-                </select>
-                <button>Sort: Ascending</button>
-            </div>
+        <!-- Top Blade: Header / Navigation / Filters -->
+        <section class="top-blade">
+            <header class="embossed-header">
+                <div class="title">
+                    <h1>Cobblemon Dex</h1>
+                    <!-- Menu Toggle Button -->
+                    <button class="menu-toggle-button">☰</button>
+                </div>
+                <nav class="menu-nav">
+                    <a href="#" class="active">Home</a>
+                    <a href="#">Dex</a>
+                    <a href="#">Cobblemon</a>
+                    <a href="#">Moves</a>
+                    <a href="#">Biomes</a>
+                    <a href="#">Items</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </header>
+            <!-- Inset Boxed Search and Filters Section -->
+            <section class="inset-boxed-controls">
+                <div class="search-section">
+                    <input type="text" placeholder="Search by name or dex number" class="search-box">
+                    <button class="search-button">
+                        Search
+                        <img src="data/zoom.svg" alt="Search Icon">
+                    </button>
+                </div>
+                <div class="filters">
+                    <select>
+                        <option>All Generations</option>
+                        <option>Generation 1</option>
+                        <option>Generation 2</option>
+                        <option>Generation 3</option>
+                        <option>Generation 4</option>
+                        <option>Generation 5</option>
+                        <option>Generation 6</option>
+                        <option>Generation 7</option>
+                        <option>Generation 8</option>
+                        <option>Generation 9</option>
+                    </select>
+                    <select>
+                        <option>All Types</option>
+                        <option>Normal</option>
+                        <option>Fire</option>
+                        <option>Fighting</option>
+                        <option>Water</option>
+                        <option>Flying</option>
+                        <option>Grass</option>
+                        <option>Poison</option>
+                        <option>Electric</option>
+                        <option>Ground</option>
+                        <option>Psychic</option>
+                        <option>Rock</option>
+                        <option>Ice</option>
+                        <option>Bug</option>
+                        <option>Dragon</option>
+                        <option>Ghost</option>
+                        <option>Dark</option>
+                        <option>Steel</option>
+                        <option>Fairy</option>
+                    </select>
+                    <select>
+                        <option>All Forms</option>
+                        <option>Alolan</option>
+                        <option>Galarian</option>
+                        <option>Hisuian</option>
+                        <option>Paldean</option>
+                        <option>Mega</option>
+                    </select>
+                    <button>Sort: Ascending</button>
+                </div>
+            </section>
         </section>
 
         <!-- Glassmorphism Screen for Pokémon Grid -->
@@ -187,13 +188,15 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="embossed-footer">
-            Cobblemon Dex © 2024
-        </footer>
+        <!-- Bottom Blade: Footer -->
+        <section class="bottom-blade">
+            <footer class="embossed-footer">
+                Cobblemon Dex © 2024
+            </footer>
+        </section>
     </div>
 
     <!-- JavaScript for Menu Toggle -->
-    <script src="js/menu-toggle.js"></script>
+    <script src="scripts/menu-toggle.js"></script>
 </body>
 </html>
