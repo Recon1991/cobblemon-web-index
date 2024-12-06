@@ -1,299 +1,281 @@
 /* General reset and styling */
 body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: #d3c4b5  url('../data/random-grey-variations.png') repeat; /* Textured background */
-  /*background-blend-mode: soft-light;*/
-}
-
-.outer-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  width: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  /*border: 1px solid rgba(231, 216, 216, 0.699);*/
-  /*background: linear-gradient(135deg, #16161a, #1e1e23);*/
-  position: relative;
-  overflow: hidden;
-}
-
-.outer-frame::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('../data/light-aluminum.png') repeat;
-  opacity: 0.15;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-/* Embossed Header / Navigation Styling */
-.embossed-header {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 4px;
-  background: linear-gradient(135deg, #242629, #2d2d33);
-  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.embossed-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('../data/light-sketch.png') repeat;
-  opacity: 0.2;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-.top-blade, .bottom-blade {
-  width: 100%;
-}
-
-.title h1 {
-  margin: 0;
-  color: #fffffe;
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-}
-
-.menu-toggle-button {
-  position: absolute;
-  right: 80px;
-  top: 15px;
-  background: #16161a;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 1.5rem;
-  color: #f8f5f2;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.menu-toggle-button:hover {
-  background: #242629;
-  transform: scale(1.1);
-}
-
-.menu-nav {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.menu-nav a {
-  text-decoration: none;
-  color: #e4e4e4;
-  font-weight: bold;
-  padding: 8px 12px;
-  transition: background 0.3s ease, color 0.3s ease;
-  border-radius: 5px;
-}
-
-.menu-nav a.active, .menu-nav a:hover {
-  color: #f45d48;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Inset Boxed Search and Filters Section */
-.inset-boxed-controls {
-  width: 100%;
-  z-index: 1;
-  padding: 13px;
-  margin-bottom: 20px;
-  background: linear-gradient(145deg, #242629, #1e1e23);
-  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1), 0px 6px 12px 0px rgba(0, 0, 0, 0.3), 0px 8px 24px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.search-section {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.search-box {
-  padding: 12px;
-  width: 60%;
-  max-width: 400px;
-  border-radius: 10px;
-  border: 2px solid #444;
-  margin-right: 15px;
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Search Button Styling */
-.search-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: linear-gradient(145deg, #078080, #066a6a);
-  color: #fffffe;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  font-weight: bold;
-  font-size: 1.1rem;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-}
-
-.search-button:hover {
-  background: linear-gradient(145deg, #066a6a, #055d5d);
-  transform: translateY(-3px);
-}
-
-.search-button img {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-}
-
-.filters {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.filters select,
-.filters button {
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #444;
-  background: linear-gradient(135deg, #f8f5f2, #e4e2df);
-  cursor: pointer;
-  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-}
-
-.filters select:hover,
-.filters button:hover {
-  background: linear-gradient(135deg, #e4e2df, #d9d7d5);
-}
-
-/* Glassmorphism Pokémon Grid Screen */
-.glass-screen {
-  width: 96%;
-  border-radius: 25px;
-  padding: 25px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(20px) brightness(1.1);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
-  width: 100%;
-}
-
-.pokemon-card {
-  background: #fffffe;
-  border-radius: 20px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pokemon-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-}
-
-.pokemon-card img {
-  max-width: 110px;
-  margin-bottom: 15px;
-}
-
-.name {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #222525;
-}
-
-.dex-number {
-  color: #078080;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.types {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.type-badge {
-  padding: 6px 12px;
-  border-radius: 15px;
-  font-size: 1rem;
-  color: #ffffff;
-}
-
-/* Footer Styling */
-.embossed-footer {
-  width: 97%;
-  padding: 15px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #ffffff, #f2f2f2);
-  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(255, 255, 255, 0.6);
-  text-align: center;
-  color: #232323;
-  margin-top: 20px;
-}
-
-/* Type Badge Colors */
-.type-fire {
-  background-color: #f45d48;
-}
-.type-water {
-  background-color: #078080;
-}
-.type-grass {
-  background-color: #00b894;
-}
-.type-electric {
-  background-color: #fbc531;
-}
-.type-normal {
-  background-color: #a8a77a;
-}
-.type-fairy {
-  background-color: #ee99ac;
-}
-.type-ghost {
-  background-color: #735797;
-}
-.type-poison {
-  background-color: #a33ea1;
-}
-.type-psychic {
-  background-color: #f85888;
-}
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #d3c4b5 url('../data/random-grey-variations.png') repeat; /* Textured background */
+    /*background-blend-mode: soft-light;*/
+  }
+  
+  /* Top Blade Styling */
+  .top-blade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(135deg, #16161a, #1e1e23);
+  }
+  
+  /* Embossed Header / Navigation Styling */
+  .embossed-header {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #242629, #2d2d33);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  
+  .title h1 {
+    margin: 0;
+    color: #fffffe;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
+  
+  .menu-toggle-button {
+    position: absolute;
+    right: 80px;
+    top: 15px;
+    background: #16161a;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #f8f5f2;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .menu-toggle-button:hover {
+    background: #242629;
+    transform: scale(1.1);
+  }
+  
+  .menu-nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+  }
+  
+  .menu-nav a {
+    text-decoration: none;
+    color: #e4e4e4;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .menu-nav a.active, .menu-nav a:hover {
+    color: #f45d48;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Rainbow Accent Strip Styling */
+  .rainbow-accent {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 300% 100%;
+    animation: rainbow-shimmer 6s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  /* Inset Boxed Search and Filters Section */
+  .inset-boxed-controls {
+    width: 100%;
+    z-index: 1;
+    padding: 13px;
+    background: linear-gradient(145deg, #242629, #1e1e23);
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-section {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box {
+    padding: 12px;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 10px;
+    border: 2px solid #444;
+    margin-right: 15px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Search Button Styling */
+  .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(145deg, #078080, #066a6a);
+    color: #fffffe;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  }
+  
+  .search-button:hover {
+    background: linear-gradient(145deg, #066a6a, #055d5d);
+    transform: translateY(-3px);
+  }
+  
+  .search-button img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .filters select,
+  .filters button {
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #444;
+    background: linear-gradient(135deg, #f8f5f2, #e4e2df);
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+  }
+  
+  .filters select:hover,
+  .filters button:hover {
+    background: linear-gradient(135deg, #e4e2df, #d9d7d5);
+  }
+  
+  /* Glassmorphism Pokémon Grid Screen */
+  .glass-screen {
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(20px) brightness(1.1);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    width: 100%;
+  }
+  
+  .pokemon-card {
+    background: #fffffe;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pokemon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pokemon-card img {
+    max-width: 110px;
+    margin-bottom: 15px;
+  }
+  
+  .name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222525;
+  }
+  
+  .dex-number {
+    color: #078080;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .types {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .type-badge {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  @keyframes rainbow-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Footer Styling */
+  .embossed-footer {
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(255, 255, 255, 0.6);
+    text-align: center;
+    color: #232323;
+    margin-top: 20px;
+  }
+  
+  /* Type Badge Colors */
+  .type-fire {
+    background-color: #f45d48;
+  }
+  .type-water {
+    background-color: #078080;
+  }
+  .type-grass {
+    background-color: #00b894;
+  }
+  .type-electric {
+    background-color: #fbc531;
+  }
+  .type-normal {
+    background-color: #a8a77a;
+  }
+  .type-fairy {
+    background-color: #ee99ac;
+  }
+  .type-ghost {
+    background-color: #735797;
+  }
+  .type-poison {
+    background-color: #a33ea1;
+  }
+  .type-psychic {
+    background-color: #f85888;
+  }
+  
