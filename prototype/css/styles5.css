@@ -1,0 +1,134 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffcc00;
+  }
+  
+  .rainbow-divider {
+    width: 80%;
+    height: 5px;
+    margin: 10px auto;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    border-radius: 50px;
+    animation: rainbow 5s linear infinite;
+  }
+  
+/* Animating the Rainbow Divider */
+@keyframes rainbow-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+  
+  /* Navigation */
+  nav {
+    margin-top: 10px;
+  }
+  
+  .menu-toggle {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu li {
+    list-style: none;
+  }
+  
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+  }
+  
+  .card-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: #ccc;
+    border-radius: 50%;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .card-number, .card-type {
+    font-size: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  footer nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  footer .socials a {
+    color: #ffcc00;
+    margin: 0 5px;
+  }
+  
