@@ -10,10 +10,21 @@ body {
 .top-blade {
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Ensures full-width children */
+    justify-content: center;
+    align-items: center;
     width: 100vw; /* Spans entire viewport width */
-    background: linear-gradient(135deg, #16161a, #1e1e23);
+    background: linear-gradient(
+      91deg, 
+      #16161a, 
+      #2b2e31);
     position: relative; /* For stacking child elements */
+}
+
+.header-container {
+  margin: 0 auto; /* Center the content inside the full-width header */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-aligns content */
 }
   
   /* Embossed Header / Navigation Styling */
@@ -28,8 +39,12 @@ body {
   .embossed-header {
     padding: 20px;
     text-align: center;
+    width: 100vw;
+    max-width: none;
     background: linear-gradient(135deg, #242629, #2d2d33);
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      inset 5px 5px 10px rgba(0, 0, 0, 0.5), 
+      inset -5px -5px 10px rgba(255, 255, 255, 0.1);
     z-index: 10;
     position: relative;
   }
@@ -63,45 +78,49 @@ body {
   
   .menu-nav {
     display: flex;
-    gap: 15px;
+    gap: 5px;
     margin-top: 20px;
-    padding: 10px;
-    background: linear-gradient(135deg, #51423c, #292a2d), 
-      url('../data/wild-oliva.png'); 
-    background-blend-mode: multiply;
-    border-radius: 10px;
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.9), inset -2px -2px 8px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(182, 194, 198, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    background: linear-gradient(
+      91deg, 
+      #3b3b3b, 
+      #252d42), 
+      url('../data/dotnoise-light-grey.png') repeat 
+      ; 
+    background-blend-mode:hard-light;
+    border-radius: 7px;
+    box-shadow: 
+      inset 3px 2px 4px rgba(0, 0, 0, 0.9), 
+      inset -2px -2px 4px rgba(255, 255, 255, 0.3), 
+      1px 1px 2px rgba(182, 194, 198, 0.4);
     justify-content: center;
+    max-width: fit-content;
   }
   
   .menu-nav a {
     text-decoration: none;
-    color: #e4e4e4;
+    color: #bababab9;
     font-weight: bold;
     padding: 8px 12px;
-    transition: background 0.3s ease, color 0.3s ease;
+    background: rgb(80, 69, 61);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid hsl(255, 255, 255, 0.2);
+    box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);
+    transition: background 0.2s ease, color 0.5s ease;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
     border-radius: 5px;
   }
   
   .menu-nav a.active, .menu-nav a:hover {
-    color: #f45d48;
-    background: rgba(255, 255, 255, 0.2);
+    color: #e4eeed;
+    background: rgba(158, 148, 126, 0.671);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-left: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 3px 3px 1px rgba(5, 5, 5, 0.3);
+    box-shadow: 0px 6px 1px rgba(5, 5, 5, 0.3);
     z-index: 12;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
-  }
-  
-  /* Rainbow Accent Strip Styling */
-  .rainbow-accent {
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
-    background-size: 300% 100%;
-    animation: rainbow-shimmer 6s linear infinite;
-    margin-bottom: 20px;
   }
   
 /* Rainbow Divider with Inset Effect */
@@ -111,12 +130,12 @@ body {
     background: linear-gradient(90deg, 
      red, orange, yellow, green, cyan, blue, violet, red);
     box-shadow: 
-      inset 0px 2px 3px rgba(0, 0, 0, 0.8), 
+      inset 0px 2px 2px rgba(0, 0, 0, 0.6), 
       inset 0px -1px 1px rgba(0, 0, 0, 0.5), 
       0px 0px 1px rgba(255, 255 , 255, 0.6);
     background-size: 400% 100%;
     animation: rainbow-oscillate 16s ease-in-out infinite;
-}
+} 
 
 @keyframes rainbow-oscillate {
     0% { background-position: 0% 50%; }   /* Start at the left */
