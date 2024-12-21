@@ -7,6 +7,13 @@
   --accent-1: #078080;
   --accent-2: #eebbc3;
 
+  /* Header Colors */
+  --header-main: #232946;
+  --header-headline: #fffffe;
+  --header-paragraph: #b8c1ec;
+  --header-button: #eebbc3;
+  --header-stroke: #121629;
+
   /* Button Colors */
   --btn-bg: #078080;
   --btn-text: #ffffff;
