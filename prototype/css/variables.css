@@ -1,0 +1,47 @@
+:root {
+  /* Global Colors */
+  --bg-main: #eff0f3;
+  --text-primary: #222525;
+  --text-secondary: #444444;
+  --accent-1: #078080;
+  --accent-2: #eebbc3;
+
+  /* Header Colors */
+  --header-main: #232946;
+  --header-headline: #fffffe;
+  --header-paragraph: #b8c1ec;
+  --header-button: #eebbc3;
+  --header-stroke: #121629;
+
+  /* Search-Filter Colors */
+  --filter-bg: var(--header-main);
+  --filter-text: #ffffff;
+  --filter-button-bg: #078080;
+  --filter-button-text: #ffffff;
+  --filter-button-hover-bg: #055d5d;
+  --filter-button-hover-text: #ffffff;
+
+  /* Button Colors */
+  --btn-bg: #078080;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #055d5d;
+  --btn-hover-text: #ffffff;
+
+  /* Card Colors */
+  --card-bg: #ffffff;
+  --card-heading: #222525;
+  --card-paragraph: #444444;
+
+  /* Icon Colors */
+  --icon-stroke: #121629;
+  --icon-primary: #b8c1ec;
+  --icon-highlight: #eebbc3;
+  --icon-secondary: #ffffff;
+
+  /* Special Sections */
+  --form-bg: #d4939d;
+  --form-text: #ffffff;
+  --form-button-bg: #232946;
+  --form-button-text: #ffffff;
+  --footer-bg: #121629;
+}
