@@ -1,0 +1,212 @@
+/* General reset and styling */
+:root {
+  /* Global Colors */
+  --bg-main: #eff0f3;
+  --text-primary: #222525;
+  --text-secondary: #444444;
+  --accent-1: #078080;
+  --accent-2: #eebbc3;
+
+  /* Button Colors */
+  --btn-bg: #078080;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #055d5d;
+  --btn-hover-text: #ffffff;
+
+  /* Card Colors */
+  --card-bg: #ffffff;
+  --card-heading: #222525;
+  --card-paragraph: #444444;
+
+  /* Icon Colors */
+  --icon-stroke: #121629;
+  --icon-primary: #b8c1ec;
+  --icon-highlight: #eebbc3;
+  --icon-secondary: #ffffff;
+
+  /* Special Sections */
+  --form-bg: #d4939d;
+  --form-text: #ffffff;
+  --form-button-bg: #232946;
+  --form-button-text: #ffffff;
+  --footer-bg: #121629;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Full-width Top Blade */
+.top-blade {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Spans entire viewport width */
+  background: linear-gradient(135deg, #B9DFC2, #A1C99A);
+  position: relative; /* For stacking child elements */
+}
+
+.header-container {
+margin: 0 auto; /* Center the content inside the full-width header */
+display: flex;
+flex-direction: column;
+align-items: center; /* Center-aligns content */
+}
+
+/* Embossed Header / Navigation Styling */
+.embossed-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../data/dotnoise-light-grey.png') repeat;
+  opacity: 0.1; /* Adjust the intensity */
+  z-index: -1; /* Keep it behind other elements */
+}
+.embossed-header {
+  padding: 20px;
+  text-align: center;
+  width: 100vw;
+  max-width: none;
+  background: linear-gradient(90deg, #B9DFC2, #F8F9F8);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  position: relative;
+}
+
+.title h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.menu-nav {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+  padding: 5px;
+  background: linear-gradient(91deg, #3b3b3b, #252d42), url('../data/dotnoise-light-grey.png') repeat;
+  background-blend-mode: hard-light;
+  border-radius: 7px;
+  box-shadow: inset 3px 2px 4px rgba(0, 0, 0, 0.9), inset -2px -2px 4px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(182, 194, 198, 0.4);
+  justify-content: center;
+  max-width: fit-content;
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: bold;
+  padding: 8px 12px;
+  background: rgb(80, 69, 61);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid hsl(255, 255, 255, 0.2);
+  box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);
+  transition: background 0.2s ease, color 0.5s ease;
+  border-radius: 5px;
+}
+
+.menu-nav a.active, .menu-nav a:hover {
+  color: var(--text-primary);
+  background: var(--accent-1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 6px 1px rgba(5, 5, 5, 0.3);
+}
+
+/* Rainbow Divider with Inset Effect */
+.rainbow-accent.inset {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.6), inset 0px -1px 1px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(255, 255 , 255, 0.6);
+  background-size: 400% 100%;
+  animation: rainbow-oscillate 16s ease-in-out infinite;
+}
+
+@keyframes rainbow-oscillate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism Pokémon Grid Screen */
+.glass-screen {
+  width: 80%;
+  max-width: 1200px;
+  border-radius: 25px;
+  padding: 25px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(1px) brightness(1.2);
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+.pokemon-card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.pokemon-card img {
+  max-width: 110px;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.dex-number {
+  color: var(--accent-1);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.types {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.type-badge {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Footer Styling */
+.embossed-footer {
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: var(--footer-bg);
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(255, 255, 255, 0.6);
+  text-align: center;
+  color: var(--text-primary);
+  margin-top: 20px;
+}

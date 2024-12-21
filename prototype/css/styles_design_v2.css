@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #5695ad url('../data/bright-squares.png') repeat; /* Textured background */
+    background: #eff0f3 url('../data/bright-squares.png') repeat; /* Textured background */
     /*background-blend-mode: soft-light;*/
   }
   
@@ -14,9 +14,9 @@ body {
     align-items: center;
     width: 100vw; /* Spans entire viewport width */
     background: linear-gradient(
-      91deg, 
-      #16161a, 
-      #2b2e31);
+      135deg, 
+      #B9DFC2, 
+      #A1C99A);
     position: relative; /* For stacking child elements */
 }
 
@@ -41,7 +41,7 @@ body {
     text-align: center;
     width: 100vw;
     max-width: none;
-    background: linear-gradient(135deg, #242629, #2d2d33);
+    background: linear-gradient(90deg, #B9DFC2, #F8F9F8);
     box-shadow: 
       inset 5px 5px 10px rgba(0, 0, 0, 0.5), 
       inset -5px -5px 10px rgba(255, 255, 255, 0.1);
@@ -233,7 +233,7 @@ body {
     padding: 25px;
     margin-bottom: 20px;
     backdrop-filter: blur(1px) brightness(1.2);
-    background: rgba(244, 251, 255, 0.247);
+    background: #fffffe;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.096);
     margin: 20px auto;
@@ -247,7 +247,7 @@ body {
   }
   
   .pokemon-card {
-    background: #fffefc;
+    background: #eff0f3;
     border-radius: 20px;
     padding: 15px;
     text-align: center;

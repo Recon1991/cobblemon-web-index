@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futuristic Pokedex Design</title>
-  <link rel="stylesheet" href="css/styles_design_v3.css">
+  <link rel="stylesheet" href="css/styles_design_v2.css">
 </head>
 <body>
     <!-- Top Blade: Header / Navigation / Filters -->
@@ -23,15 +23,6 @@
                     <a href="#">Items</a>
                     <a href="#">Contact</a>
                 </nav>
-                <div class="theme-selector">
-                    <label for="theme-dropdown">Select Theme:</label>
-                    <select id="theme-dropdown">
-                        <option value="">Default</option>
-                        <option value="theme-dark">Dark Mode</option>
-                        <option value="theme-neon">Electric Neon</option>
-                        <!-- Add more theme options here -->
-                    </select>
-                </div>
             </div>
         </header>
         <!-- Rainbow Accent Strip -->
@@ -205,33 +196,7 @@
         </footer>
     </section>
 
-    <!-- JavaScript for Menu Toggle and Theme Switcher -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeDropdown = document.getElementById('theme-dropdown');
-            const body = document.body;
-
-            // Load saved theme from localStorage
-            const savedTheme = localStorage.getItem('selectedTheme');
-            if (savedTheme) {
-                body.classList.add(savedTheme);
-                themeDropdown.value = savedTheme;
-            }
-
-            // Listen for theme changes
-            themeDropdown.addEventListener('change', (event) => {
-                const selectedTheme = event.target.value;
-
-                // Remove previous theme classes
-                body.className = body.className.replace(/\btheme-\w+\b/g, '');
-                if (selectedTheme) {
-                    body.classList.add(selectedTheme);
-                }
-
-                // Save theme to localStorage
-                localStorage.setItem('selectedTheme', selectedTheme || '');
-            });
-        });
-    </script>
+    <!-- JavaScript for Menu Toggle -->
+    <script src="scripts/menu-toggle.js"></script>
 </body>
 </html>
