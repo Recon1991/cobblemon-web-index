@@ -51,40 +51,45 @@ align-items: center; /* Center-aligns content */
   margin: 0;
   color: var(--header-headline);
   font-size: 2.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 5px var(--header-stroke);
 }
 
 .menu-nav {
   display: flex;
   gap: 5px;
   margin-top: 20px;
-  padding: 5px;
-  background: linear-gradient(91deg, #3b3b3b, #252d42), url('../data/dotnoise-light-grey.png') repeat;
+  padding: 10px;
+  /*background: linear-gradient(
+    91deg, #626ea5, #3c4d78), 
+    url('../data/dotnoise-light-grey.png') repeat;*/
   background-blend-mode: hard-light;
-  border-radius: 7px;
-  box-shadow: inset 3px 2px 4px rgba(0, 0, 0, 0.9), inset -2px -2px 4px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(182, 194, 198, 0.4);
+  border-radius: 10px;
+  /*box-shadow: 
+    inset 3px 2px 4px rgba(0, 0, 0, 0.9), 
+    inset -2px -2px 4px rgba(255, 255, 255, 0.3), 
+    1px 1px 2px rgba(182, 194, 198, 0.4);*/
   justify-content: center;
   max-width: fit-content;
 }
 
 .menu-nav a {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--paragraph);
   font-weight: bold;
   padding: 8px 12px;
-  background: rgb(80, 69, 61);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid hsl(255, 255, 255, 0.2);
-  box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);
+  background: var(--header-main);
+  border-color: var(--header-stroke);
+  border-style: solid;
+  /*border-top: 1px solid rgba(255, 255, 255, 0.2);*/
+  /*border-left: 1px solid hsl(255, 255, 255, 0.2);*/
+  /*box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);*/
   transition: background 0.2s ease, color 0.5s ease;
   border-radius: 5px;
 }
 
 .menu-nav a.active, .menu-nav a:hover {
-  color: var(--text-primary);
-  background: var(--accent-1);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--header-main);
+  background: var(--accent-2);
   box-shadow: 0px 6px 1px rgba(5, 5, 5, 0.3);
 }
 
@@ -184,8 +189,8 @@ align-items: center; /* Center-aligns content */
   padding: 25px;
   margin-bottom: 20px;
   backdrop-filter: blur(1px) brightness(1.2);
-  background-color: var(--card-bg);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.0);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.0);
   margin: 20px auto;
 }
 

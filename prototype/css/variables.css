@@ -1,10 +1,11 @@
 :root {
   /* Global Colors */
-  --bg-main: #eff0f3;
+  --bg-main: #d4d8f0;
   --text-primary: #222525;
   --text-secondary: #444444;
   --accent-1: #078080;
   --accent-2: #eebbc3;
+  --paragraph: #b8c1ec;
 
   /* Header Colors */
   --header-main: #232946;
@@ -12,6 +13,7 @@
   --header-paragraph: #b8c1ec;
   --header-button: #eebbc3;
   --header-stroke: #121629;
+  --header-text-primary: #fffffe;
 
   /* Search-Filter Colors */
   --filter-bg: var(--header-main);
