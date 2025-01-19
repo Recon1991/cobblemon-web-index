@@ -15,6 +15,9 @@
   --header-stroke: #121629;
   --header-text-primary: #fffffe;
 
+  /* Menu Navigation */
+  --menu-active: #eadbdd;
+
   /* Search-Filter Colors */
   --filter-bg: var(--header-main);
   --filter-text: #ffffff;
@@ -33,6 +36,7 @@
   --card-bg: #ffffff;
   --card-heading: #222525;
   --card-paragraph: #444444;
+  --card-border: #eed7d2;
 
   /* Icon Colors */
   --icon-stroke: #121629;

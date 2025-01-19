@@ -57,7 +57,7 @@ align-items: center; /* Center-aligns content */
 .menu-nav {
   display: flex;
   gap: 5px;
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 10px;
   /*background: linear-gradient(
     91deg, #626ea5, #3c4d78), 
@@ -89,8 +89,12 @@ align-items: center; /* Center-aligns content */
 
 .menu-nav a.active, .menu-nav a:hover {
   color: var(--header-main);
-  background: var(--accent-2);
+  background: var(--menu-active);
   box-shadow: 0px 6px 1px rgba(5, 5, 5, 0.3);
+}
+
+.theme-selector {
+  
 }
 
 /* Rainbow Divider with Inset Effect */
@@ -203,6 +207,7 @@ align-items: center; /* Center-aligns content */
 
 .pokemon-card {
   background-color: var(--card-bg);
+  border: 3px solid var(--card-border);
   border-radius: 20px;
   padding: 15px;
   text-align: center;
