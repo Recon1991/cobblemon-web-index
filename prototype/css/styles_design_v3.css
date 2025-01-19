@@ -12,16 +12,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw; /* Spans entire viewport width */
-  background: linear-gradient(135deg, #B9DFC2, #A1C99A);
+  width: 100dvw; /* Spans entire viewport width */
+  /*background: linear-gradient(135deg, #B9DFC2, #A1C99A);*/
   position: relative; /* For stacking child elements */
 }
 
 .header-container {
-margin: 0 auto; /* Center the content inside the full-width header */
-display: flex;
-flex-direction: column;
-align-items: center; /* Center-aligns content */
+  margin: 0 auto; /* Center the content inside the full-width header */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-aligns content */
 }
 
 /* Embossed Header / Navigation Styling */
@@ -29,7 +29,6 @@ align-items: center; /* Center-aligns content */
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../data/dotnoise-light-grey.png') repeat;
   opacity: 0.1; /* Adjust the intensity */
   z-index: -1; /* Keep it behind other elements */
 }
@@ -37,9 +36,9 @@ align-items: center; /* Center-aligns content */
 .embossed-header {
   padding: 20px;
   text-align: center;
-  width: 100vw;
+  width: 100dvw;
   max-width: none;
-  background: var(--header-main);
+  background: var(--header-main) url('../data/transparent-square-tiles.png') repeat ;
   box-shadow: 
     inset 5px 5px 10px rgba(0, 0, 0, 0.5), 
     inset -5px -5px 10px rgba(22, 22, 22, 0.1);
@@ -68,6 +67,7 @@ align-items: center; /* Center-aligns content */
     inset 3px 2px 4px rgba(0, 0, 0, 0.9), 
     inset -2px -2px 4px rgba(255, 255, 255, 0.3), 
     1px 1px 2px rgba(182, 194, 198, 0.4);*/
+  
   justify-content: center;
   max-width: fit-content;
 }
@@ -83,6 +83,7 @@ align-items: center; /* Center-aligns content */
   /*border-top: 1px solid rgba(255, 255, 255, 0.2);*/
   /*border-left: 1px solid hsl(255, 255, 255, 0.2);*/
   /*box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);*/
+  box-shadow: 0px 1px 0px rgba(5, 5, 5, 0.3);
   transition: background 0.2s ease, color 0.5s ease;
   border-radius: 5px;
 }
@@ -118,7 +119,7 @@ align-items: center; /* Center-aligns content */
   width: 100%;
   z-index: 1;
   padding: 13px;
-  background: var(--filter-bg);
+  background: var(--filter-bg) url('../data/transparent-square-tiles.png') repeat ;
   box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -2px -2px 0px rgba(23, 23, 23, 0.1), 0px 8px 6px rgba(43, 117, 179, 0.5);
   display: flex;
   flex-direction: column;
@@ -146,7 +147,7 @@ align-items: center; /* Center-aligns content */
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 20px;
+  padding: 4px 4px;
   background: var(--filter-button-bg);
   color: var(--filter-button-text);
   border: none;
@@ -154,7 +155,7 @@ align-items: center; /* Center-aligns content */
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 16px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
