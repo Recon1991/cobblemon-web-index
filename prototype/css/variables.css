@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@87.5,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 :root {
   /* Global Colors */
   --bg-main: #d4d8f0;
@@ -6,6 +7,30 @@
   --accent-1: #078080;
   --accent-2: #eebbc3;
   --paragraph: #b8c1ec;
+
+  /* Font Definition */
+  --ff: "Montserrat", sans-serif;
+  --ff-fredoka: "Fredoka", sans-serif;
+  --ff-inter: "Inter", sans-serif;
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-ubuntu: "Ubuntu", sans-serif;
+  --ff-poppins: "Poppins", sans-serif;
+
+  --h1: bold 2.8rem/1.4em var(--ff-fredoka);
+  --h2: bold 1.2rem/1.4em var(--ff);
+  --p: 1rem/1.4em var(--ff);
+  --p2: .875rem/1.4em var(--ff);
+  --cta: .875rem/1.4em var(--ff);
+
+  /* Universal Gray */
+  --gray100: hsl(0,0%,100%);
+  --gray70: hsl(0,0%,70%);
+  --gray50: hsl(0,0%,50%);
+  --gray30: hsl(0,0%,30%);
+  --gray0: hsl(0,0%,0%);
+
+  /* Transitions */
+  --transition: 0.15s ease-in-out;
 
   /* Header Colors */
   --header-main: #232946;
@@ -23,7 +48,7 @@
   --filter-text: #ffffff;
   --filter-button-bg: #078080;
   --filter-button-text: #ffffff;
-  --filter-button-hover-bg: #055d5d;
+  --filter-button-hover-bg: #056969;
   --filter-button-hover-text: #ffffff;
 
   /* Button Colors */
@@ -33,7 +58,8 @@
   --btn-hover-text: #ffffff;
 
   /* Card Colors */
-  --card-bg: #ffffff;
+  --card-bg: #f6f7fa;
+  --card-bg-hover: #ffffff;
   --card-heading: #222525;
   --card-paragraph: #444444;
   --card-border: #eed7d2;
@@ -50,4 +76,8 @@
   --form-button-bg: #232946;
   --form-button-text: #ffffff;
   --footer-bg: #121629;
+
+  /* Type Badges */
+  --type-lightmode: #222525;
+  --type-darkmode: #ffffff;
 }

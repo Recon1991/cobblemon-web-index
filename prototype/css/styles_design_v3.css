@@ -1,7 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: var(--ff);
   background-color: var(--bg-main);
+  background: url('../data/bright-squares.png') repeat;
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -49,14 +50,15 @@ body {
 .title h1 {
   margin: 0;
   color: var(--header-headline);
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 5px var(--header-stroke);
+  font-size: 3.5rem;
+  text-shadow: 2px 6px 3px var(--header-stroke);
+  font-family: var(--ff-fredoka);
 }
 
 .menu-nav {
   display: flex;
   gap: 5px;
-  margin-top: 5px;
+  margin: 5px;
   padding: 10px;
   /*background: linear-gradient(
     91deg, #626ea5, #3c4d78), 
@@ -76,16 +78,18 @@ body {
   text-decoration: none;
   color: var(--paragraph);
   font-weight: bold;
+  font-size: var(--h1);
   padding: 8px 12px;
   background: var(--header-main);
   border-color: var(--header-stroke);
   border-style: solid;
+  border-width: 3px;
   /*border-top: 1px solid rgba(255, 255, 255, 0.2);*/
   /*border-left: 1px solid hsl(255, 255, 255, 0.2);*/
   /*box-shadow: 1px 2px 0px rgba(5, 5, 5, 0.3);*/
   box-shadow: 0px 1px 0px rgba(5, 5, 5, 0.3);
   transition: background 0.2s ease, color 0.5s ease;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .menu-nav a.active, .menu-nav a:hover {
@@ -95,7 +99,7 @@ body {
 }
 
 .theme-selector {
-  
+  color: var(--gray70);
 }
 
 /* Rainbow Divider with Inset Effect */
@@ -146,8 +150,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 4px 4px;
+  gap: 4px;
+  padding: 4px 4px 4px 10px;
   background: var(--filter-button-bg);
   color: var(--filter-button-text);
   border: none;
@@ -156,7 +160,8 @@ body {
   transition: background 0.3s ease, transform 0.3s ease;
   font-weight: bold;
   font-size: 16px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 .search-button:hover {
@@ -175,6 +180,9 @@ body {
   padding: 12px;
   border-radius: 10px;
   border: 2px solid #444;
+  font-family: var(--ff);
+  font-size: var(--p2);
+  color: var(--gray30);
   background: linear-gradient(135deg, #f8f5f2, #e4e2df);
   cursor: pointer;
   box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.1);
@@ -195,7 +203,7 @@ body {
   margin-bottom: 20px;
   backdrop-filter: blur(1px) brightness(1.2);
   background-color: rgba(0, 0, 0, 0.0);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.0);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   margin: 20px auto;
 }
 
@@ -212,13 +220,12 @@ body {
   border-radius: 20px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out;
 }
 
 .pokemon-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-color: var(--card-bg-hover);
 }
 
 .pokemon-card img {
@@ -229,13 +236,17 @@ body {
 .name {
   font-size: 1.3rem;
   font-weight: bold;
+  font-family: var(--ff-inter);
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 .dex-number {
-  color: var(--accent-1);
-  font-weight: bold;
-  margin-bottom: 8px;
+  color: var(--gray70);
+  font-family: var(--ff-inter);
+  font-weight: 400;
+  margin-top: 2px;
+  margin-bottom: 6px;
 }
 
 .types {
@@ -245,10 +256,10 @@ body {
 }
 
 .type-badge {
-  padding: 6px 12px;
+  padding: 2px 12px;
   border-radius: 15px;
-  font-size: 1rem;
-  color: #ffffff;
+  font-size: .8rem;
+  font-family: var(--ff-poppins);
 }
 
 /* Footer Styling */
