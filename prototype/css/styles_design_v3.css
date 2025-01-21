@@ -202,8 +202,8 @@ body {
   padding: 25px;
   margin-bottom: 20px;
   backdrop-filter: blur(1px) brightness(1.2);
-  background-color: rgba(0, 0, 0, 0.0);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  background-color: #fffffe;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
   margin: 20px auto;
 }
 

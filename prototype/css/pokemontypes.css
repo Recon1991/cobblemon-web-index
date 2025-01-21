@@ -7,7 +7,8 @@
     color: var(--type-darkmode);
   }
   .type-ice {
-    background: #35afe8;
+    background-color: #35afe8;
+    color: var(--type-lightmode);
   }
   .type-grass {
     background-color: #06b800;
@@ -24,6 +25,17 @@
   .type-fairy {
     background-color: #ee99ac;
     color: var(--type-darkmode);
+  }
+  .type-bug {
+    background: #a8b820;
+  }
+  
+  .type-dark {
+    background: #705848;
+  }
+  
+  .type-steel {
+    background: #b8b8d0;
   }
   .type-ghost {
     background-color: #735797;
@@ -44,11 +56,11 @@
     background-color: #f85888;
     color: var(--type-darkmode);
   }
-  .type-psychic {
-    background-color: #f85888;
-    color: var(--type-darkmode);
+  .type-ground {
+    background: linear-gradient(180deg, #f7de3f 15%, #ab9842 75%);
+    color: var(--type-lightmode);
   }
   .type-dragon {
-    background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+    background: linear-gradient(180deg, #53a4cf 15%, #f16e57 75%);
     color: var(--type-darkmode);
   }
