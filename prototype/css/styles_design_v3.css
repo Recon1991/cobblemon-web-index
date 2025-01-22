@@ -255,13 +255,6 @@ body {
   gap: 8px;
 }
 
-.type-badge {
-  padding: 2px 12px;
-  border-radius: 15px;
-  font-size: .8rem;
-  font-family: var(--ff-poppins);
-}
-
 /* Footer Styling */
 .embossed-footer {
   width: 100%;
