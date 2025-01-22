@@ -259,10 +259,9 @@ body {
 .embossed-footer {
   width: 100%;
   padding: 15px;
-  border-radius: 20px;
-  background-color: var(--footer-bg);
-  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(255, 255, 255, 0.6);
+  border-top: 2px solid var(--gray70);
+  background: var(--footer-bg) url('../data/vichy.png') repeat;
   text-align: center;
-  color: var(--text-primary);
-  margin-top: 20px;
+  color: var(--footer-text-color);
+  margin-top: 25px;
 }

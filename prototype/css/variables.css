@@ -75,7 +75,8 @@
   --form-text: #ffffff;
   --form-button-bg: #232946;
   --form-button-text: #ffffff;
-  --footer-bg: #121629;
+  --footer-bg: #16161a;
+  --footer-text-color: var(--gray70);
 
   /* Type Badges */
   --type-lightmode: #222525;
