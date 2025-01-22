@@ -50,147 +50,183 @@
   border: 1px solid rgba(255, 255, 255, 0.4); /* Frosted border */
 }
 
-/* Type-specific custom properties with RGB values */
+/* Type-specific custom properties with HEX, HSL, and RGB */
 .type-bug {
-  --type-color-start: #a8b820;
-  --type-color-end: #d4dc66;
-  --type-color-start-rgb: 168, 184, 32;
-  --type-color-end-rgb: 212, 220, 102;
+  --type-color-start: #a8b820; /* HEX */
+  --type-color-end: #d4dc66; /* HEX */
+  --type-color-start-hsl: 70, 71%, 42%; /* HSL */
+  --type-color-end-hsl: 69, 68%, 63%; /* HSL */
+  --type-color-start-rgb: 168, 184, 32; /* RGB */
+  --type-color-end-rgb: 212, 220, 102; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-dark {
-  --type-color-start: #705848;
-  --type-color-end: #8c6c5a;
-  --type-color-start-rgb: 112, 88, 72;
-  --type-color-end-rgb: 140, 108, 90;
+  --type-color-start: #705848; /* HEX */
+  --type-color-end: #8c6c5a; /* HEX */
+  --type-color-start-hsl: 30, 22%, 36%; /* HSL */
+  --type-color-end-hsl: 24, 20%, 45%; /* HSL */
+  --type-color-start-rgb: 112, 88, 72; /* RGB */
+  --type-color-end-rgb: 140, 108, 90; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-dragon {
-  --type-color-start: #53a4cf;
-  --type-color-end: #f16e57;
-  --type-color-start-rgb: 83, 164, 207;
-  --type-color-end-rgb: 241, 110, 87;
+  --type-color-start: #53a4cf; /* HEX */
+  --type-color-end: #f16e57; /* HEX */
+  --type-color-start-hsl: 200, 60%, 57%; /* HSL */
+  --type-color-end-hsl: 10, 86%, 64%; /* HSL */
+  --type-color-start-rgb: 83, 164, 207; /* RGB */
+  --type-color-end-rgb: 241, 110, 87; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-electric {
-  --type-color-start: #fbc531;
-  --type-color-end: #ffe76b;
-  --type-color-start-rgb: 251, 197, 49;
-  --type-color-end-rgb: 255, 231, 107;
+  --type-color-start: #fbc531; /* HEX */
+  --type-color-end: #ffe76b; /* HEX */
+  --type-color-start-hsl: 44, 96%, 59%; /* HSL */
+  --type-color-end-hsl: 49, 100%, 71%; /* HSL */
+  --type-color-start-rgb: 251, 197, 49; /* RGB */
+  --type-color-end-rgb: 255, 231, 107; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-fairy {
-  --type-color-start: #ee99ac;
-  --type-color-end: #f7c2cf;
-  --type-color-start-rgb: 238, 153, 172;
-  --type-color-end-rgb: 247, 194, 207;
+  --type-color-start: #ee99ac; /* HEX */
+  --type-color-end: #f7c2cf; /* HEX */
+  --type-color-start-hsl: 344, 70%, 77%; /* HSL */
+  --type-color-end-hsl: 345, 72%, 87%; /* HSL */
+  --type-color-start-rgb: 238, 153, 172; /* RGB */
+  --type-color-end-rgb: 247, 194, 207; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-fighting {
-  --type-color-start: #d56723;
-  --type-color-end: #f09e61;
-  --type-color-start-rgb: 213, 103, 35;
-  --type-color-end-rgb: 240, 158, 97;
+  --type-color-start: #d56723; /* HEX */
+  --type-color-end: #f09e61; /* HEX */
+  --type-color-start-hsl: 23, 73%, 49%; /* HSL */
+  --type-color-end-hsl: 23, 82%, 66%; /* HSL */
+  --type-color-start-rgb: 213, 103, 35; /* RGB */
+  --type-color-end-rgb: 240, 158, 97; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-fire {
-  --type-color-start: #fd7d24;
-  --type-color-end: #ff9b60;
-  --type-color-start-rgb: 253, 125, 36;
-  --type-color-end-rgb: 255, 155, 96;
+  --type-color-start: #fd7d24; /* HEX */
+  --type-color-end: #ff9b60; /* HEX */
+  --type-color-start-hsl: 24, 98%, 57%; /* HSL */
+  --type-color-end-hsl: 25, 100%, 68%; /* HSL */
+  --type-color-start-rgb: 253, 125, 36; /* RGB */
+  --type-color-end-rgb: 255, 155, 96; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-flying {
-  --type-color-start: #3dc7ef;
-  --type-color-end: #bdb9b8;
-  --type-color-start-rgb: 61, 199, 239;
-  --type-color-end-rgb: 189, 185, 184;
+  --type-color-start: #3dc7ef; /* HEX */
+  --type-color-end: #bdb9b8; /* HEX */
+  --type-color-start-hsl: 195, 83%, 59%; /* HSL */
+  --type-color-end-hsl: 15, 7%, 73%; /* HSL */
+  --type-color-start-rgb: 61, 199, 239; /* RGB */
+  --type-color-end-rgb: 189, 185, 184; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-ghost {
-  --type-color-start: #735797;
-  --type-color-end: #9b87c0;
-  --type-color-start-rgb: 115, 87, 151;
-  --type-color-end-rgb: 155, 135, 192;
+  --type-color-start: #735797; /* HEX */
+  --type-color-end: #9b87c0; /* HEX */
+  --type-color-start-hsl: 266, 28%, 47%; /* HSL */
+  --type-color-end-hsl: 264, 33%, 64%; /* HSL */
+  --type-color-start-rgb: 115, 87, 151; /* RGB */
+  --type-color-end-rgb: 155, 135, 192; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-grass {
-  --type-color-start: #06b800;
-  --type-color-end: #47e142;
-  --type-color-start-rgb: 6, 184, 0;
-  --type-color-end-rgb: 71, 225, 66;
+  --type-color-start: #06b800; /* HEX */
+  --type-color-end: #47e142; /* HEX */
+  --type-color-start-hsl: 116, 100%, 36%; /* HSL */
+  --type-color-end-hsl: 118, 73%, 57%; /* HSL */
+  --type-color-start-rgb: 6, 184, 0; /* RGB */
+  --type-color-end-rgb: 71, 225, 66; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-ground {
-  --type-color-start: #f7de3f;
-  --type-color-end: #ab9842;
-  --type-color-start-rgb: 247, 222, 63;
-  --type-color-end-rgb: 171, 152, 66;
+  --type-color-start: #f7de3f; /* HEX */
+  --type-color-end: #ab9842; /* HEX */
+  --type-color-start-hsl: 51, 92%, 61%; /* HSL */
+  --type-color-end-hsl: 43, 43%, 46%; /* HSL */
+  --type-color-start-rgb: 247, 222, 63; /* RGB */
+  --type-color-end-rgb: 171, 152, 66; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-ice {
-  --type-color-start: #35afe8;
-  --type-color-end: #6ad8ff;
-  --type-color-start-rgb: 53, 175, 232;
-  --type-color-end-rgb: 106, 216, 255;
+  --type-color-start: #35afe8; /* HEX */
+  --type-color-end: #6ad8ff; /* HEX */
+  --type-color-start-hsl: 200, 80%, 56%; /* HSL */
+  --type-color-end-hsl: 202, 100%, 71%; /* HSL */
+  --type-color-start-rgb: 53, 175, 232; /* RGB */
+  --type-color-end-rgb: 106, 216, 255; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-normal {
-  --type-color-start: #dde0e2;
-  --type-color-end: #f3f5f6;
-  --type-color-start-rgb: 221, 224, 226;
-  --type-color-end-rgb: 243, 245, 246;
+  --type-color-start: #dde0e2; /* HEX */
+  --type-color-end: #f3f5f6; /* HEX */
+  --type-color-start-hsl: 210, 10%, 88%; /* HSL */
+  --type-color-end-hsl: 210, 15%, 95%; /* HSL */
+  --type-color-start-rgb: 221, 224, 226; /* RGB */
+  --type-color-end-rgb: 243, 245, 246; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-poison {
-  --type-color-start: #a33ea1;
-  --type-color-end: #c871c8;
-  --type-color-start-rgb: 163, 62, 161;
-  --type-color-end-rgb: 200, 113, 200;
+  --type-color-start: #a33ea1; /* HEX */
+  --type-color-end: #c871c8; /* HEX */
+  --type-color-start-hsl: 301, 44%, 44%; /* HSL */
+  --type-color-end-hsl: 302, 40%, 61%; /* HSL */
+  --type-color-start-rgb: 163, 62, 161; /* RGB */
+  --type-color-end-rgb: 200, 113, 200; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-psychic {
-  --type-color-start: #f85888;
-  --type-color-end: #fc96b1;
-  --type-color-start-rgb: 248, 88, 136;
-  --type-color-end-rgb: 252, 150, 177;
+  --type-color-start: #f85888; /* HEX */
+  --type-color-end: #fc96b1; /* HEX */
+  --type-color-start-hsl: 344, 92%, 66%; /* HSL */
+  --type-color-end-hsl: 345, 92%, 79%; /* HSL */
+  --type-color-start-rgb: 248, 88, 136; /* RGB */
+  --type-color-end-rgb: 252, 150, 177; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-rock {
-  --type-color-start: #b8a038;
-  --type-color-end: #d6c56b;
-  --type-color-start-rgb: 184, 160, 56;
-  --type-color-end-rgb: 214, 197, 107;
+  --type-color-start: #b8a038; /* HEX */
+  --type-color-end: #d6c56b; /* HEX */
+  --type-color-start-hsl: 46, 54%, 47%; /* HSL */
+  --type-color-end-hsl: 46, 52%, 63%; /* HSL */
+  --type-color-start-rgb: 184, 160, 56; /* RGB */
+  --type-color-end-rgb: 214, 197, 107; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
 
 .type-steel {
-  --type-color-start: #b8b8d0;
-  --type-color-end: #e0e0f2;
-  --type-color-start-rgb: 184, 184, 208;
-  --type-color-end-rgb: 224, 224, 242;
+  --type-color-start: #b8b8d0; /* HEX */
+  --type-color-end: #e0e0f2; /* HEX */
+  --type-color-start-hsl: 240, 20%, 77%; /* HSL */
+  --type-color-end-hsl: 240, 37%, 91%; /* HSL */
+  --type-color-start-rgb: 184, 184, 208; /* RGB */
+  --type-color-end-rgb: 224, 224, 242; /* RGB */
   --type-font-color: var(--type-lightmode);
 }
 
 .type-water {
-  --type-color-start: #126bb0;
-  --type-color-end: #4b96de;
-  --type-color-start-rgb: 18, 107, 176;
-  --type-color-end-rgb: 75, 150, 222;
+  --type-color-start: #126bb0; /* HEX */
+  --type-color-end: #4b96de; /* HEX */
+  --type-color-start-hsl: 206, 82%, 38%; /* HSL */
+  --type-color-end-hsl: 210, 67%, 58%; /* HSL */
+  --type-color-start-rgb: 18, 107, 176; /* RGB */
+  --type-color-end-rgb: 75, 150, 222; /* RGB */
   --type-font-color: var(--type-darkmode);
 }
