@@ -1,5 +1,19 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+
+# Local env/config files
+.env
+.env.local
+.env.*.local
+*.local
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +21,37 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# OS system files
 .DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+!.vscode/extensions.json
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# SQLite databases and migrations
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Replit metadata
+.replit
+components.json
+
+# Vite
+.vite/
+.cache/
+
+# Optional: if using testing
+coverage/
